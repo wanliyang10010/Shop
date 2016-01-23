@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/endDecorators">
+	<!-- Excludes will never be decorated by Sitemesh. -->
+	<!--
+	<excludes>
+		 
+	    <pattern></pattern>
+	    
+	    <pattern>/data/plaintext/*</pattern>
+	    <pattern>*.txt</pattern>
+	     
+  	</excludes>
+  	-->
+  	 
+	
+	<!-- 后台配置管理，定义装饰器要过滤的页面 --> 
+	<decorator name="configureManagement" page="configureManagement.jsp">
+		<pattern>/WEB-INF/Jsp/security/*</pattern>
+		<!-- 主页 -->
+		<pattern>/endDecorators/configureManagementIndex.jsp</pattern>
+	</decorator>
+	
+	
+</decorators>

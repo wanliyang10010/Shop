@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	
+	<!-- 
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation"  value="classpath:hibernate.cfg.xml"></property>
+	</bean>
+	-->
+	<!-- 告诉spring要扫描的包 -->
+	<context:component-scan base-package="cn.xaut.shop.pojo"/>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+       <property name="configLocation"  value="classpath:hibernate.cfg.xml"></property>
+       <!-- 
+       <property name="packagesToScan">
+          <array>
+            <value>cn.xaut.shop.pojo</value>
+          </array>
+       </property>
+        -->
+    </bean>
+
+
+	<!-- <bean id="categoryServiceImpl" class="com.xaut.shop.service.impl.CategoryServiceImpl"> 
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property> <property 
+		name="filePath" value="F:\webWorkSpace\MyShop\WebRoot\image"></property> 
+		</bean> -->
+    <!-- 可将Hibernate 的持久层访问模板化 -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+
+	<!-- 此类不能直接实例化，因此此类的构造方法需要通过子类调用，获取子类的相关信息。需要懒加载 -->
+	<bean id="baseService" class="cn.xaut.shop.service.impl.BaseServiceImpl" lazy-init="true">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<!-- 新添加的 -->
+	<!-- baseServiceR 是实现了DAO层后的Service基类  -->
+	<bean id="baseServiceR" class="cn.xaut.shop.service.impl.BaseServiceRImpl" lazy-init="true">
+		<property name="baseDao" ref="baseDao"></property>
+	</bean>
+
+
+	<bean id="fileUploadUtil" class="cn.xaut.shop.util.FileUploadUtil">
+		<property name="filePath" value=""></property>
+	</bean>
+	
+	<bean id="mailSender" class="cn.xaut.shop.util.MailSender">
+		<!-- 
+		<property name="mailServerHost" value="smtp.163.com"></property>
+		<property name="userName" value="feifei6513"></property>
+		<property name="password" value="2732530"></property>
+		<property name="fromAddress" value="feifei6513@163.com"></property>
+		 -->
+	</bean>
+
+	<!-- parent 在Spring配置文件中找父类，父类通过Spring的方式创建，这样父类就可以实现依赖注入 -->
+	<bean id="orderSonService" class="cn.xaut.shop.service.impl.OrderSonServiceImpl" parent="baseService" />
+	<!-- 以下是使用了DAO层的Service服务类的bean -->
+	
+	<bean id="orderService" class="cn.xaut.shop.service.impl.OrderServiceImpl" parent="baseServiceR" >
+		<property name="baseDao"  ref="orderDao"></property>
+		<property name="orderDao" ref="orderDao"></property>
+	</bean>
+	<bean id="deliverAddrService"  class="cn.xaut.shop.service.impl.DeliverAddrServiceImpl" >
+		<property name="addrDao"  ref="addrDao"></property>
+	</bean>
+	
+	<bean id="favouriteService"  class="cn.xaut.shop.service.impl.FavouriteServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="favouriteDao"></property>
+		<property name="favouriteDao"  ref="favouriteDao"></property>
+	</bean>
+	<bean id="favouriteShopService"  class="cn.xaut.shop.service.impl.FavouriteShopServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="favouriteShopDao"></property>
+		<property name="favouriteShopDao"  ref="favouriteShopDao"></property>
+	</bean>
+	<bean id="cartService"  class="cn.xaut.shop.service.impl.CartServiceImpl"   parent="baseServiceR">
+		<property name="baseDao"  ref="cartDao"></property>
+		<property name="cartDao"  ref="cartDao"></property>
+	</bean>
+	<bean id="cartItemService"  class="cn.xaut.shop.service.impl.CartItemServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="cartItemDao"></property>
+		<property name="cartItemDao"  ref="cartItemDao"></property>
+	</bean>
+		
+	<bean id="disputeFileService"  class="cn.xaut.shop.service.impl.DisputeFileServiceImpl"  parent="baseServiceR">
+	    <property name="baseDao"  ref="disputeFileDao"></property>
+		<property name="disputeFileDao"  ref="disputeFileDao"></property>
+	</bean>
+	<bean id="disputeService"  class="cn.xaut.shop.service.impl.DisputeServiceImpl"  parent="baseServiceR">
+	<property name="baseDao"  ref="disputeDao"></property>
+		<property name="disputeDao"  ref="disputeDao"></property>
+	</bean>
+	<bean id="userInfoService"  class="cn.xaut.shop.service.impl.UserInfoServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="userDao"></property>
+		<property name="userDao"  ref="userDao"></property>
+	</bean>
+	<bean id="discountService" class="cn.xaut.shop.service.impl.DiscountServiceImpl" parent="baseServiceR" >
+	<property name="baseDao"  ref="discountDao"></property>
+		<property name="discountDao"  ref="discountDao"></property>
+	</bean>
+	<bean id="dateItemService" class="cn.xaut.shop.service.impl.DateItemServiceImpl" parent="baseServiceR">
+	<property name="baseDao"  ref="dateItemDao"></property>
+		<property name="dateItemDao"  ref="dateItemDao"></property>
+	</bean>
+	<bean id="marginItemService" class="cn.xaut.shop.service.impl.MarginItemServiceImpl" parent="baseServiceR">
+	<property name="baseDao"  ref="marginItemDao"></property>
+		<property name="marginItemDao"  ref="marginItemDao"></property>
+	</bean>
+	<bean id="pointsItemService" class="cn.xaut.shop.service.impl.PointsItemServiceImpl" parent="baseServiceR">
+	<property name="baseDao"  ref="pointsItemDao"></property>
+		<property name="pointsItemDao"  ref="pointsItemDao"></property>
+	</bean>
+	<bean id="marginRuleService"  class="cn.xaut.shop.service.impl.MarginRuleServiceImpl"  parent="baseServiceR">
+	<property name="baseDao"  ref="marginRuleDao"></property>
+		<property name="marginRuleDao"  ref="marginRuleDao"></property>
+	</bean>
+	<bean id="dateRuleService"  class="cn.xaut.shop.service.impl.DateRuleServiceImpl"  parent="baseServiceR">
+	<property name="baseDao"  ref="dateRuleDao"></property>
+		<property name="dateRuleDao"  ref="dateRuleDao"></property>
+	</bean>
+	<bean id="pointsRuleService"  class="cn.xaut.shop.service.impl.PointsRuleServiceImpl"  parent="baseServiceR">
+	   <property name="baseDao"  ref="pointsRuleDao"></property>
+		<property name="pointsRuleDao"  ref="pointsRuleDao"></property>
+	</bean>
+	
+	<bean id="shopApplyService"  class="cn.xaut.shop.service.impl.ShopApplyServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="shopApplyDao"></property>
+		<property name="shopApplyDao"  ref="shopApplyDao"></property>
+	</bean>	
+	<bean id="shopService"  class="cn.xaut.shop.service.impl.ShopServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="shopDao"></property>
+		<property name="shopDao"  ref="shopDao"></property>
+	</bean>
+	
+	<bean id="prolongApplyService"  class="cn.xaut.shop.service.impl.ProlongApplyServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="prolongApplyDao"></property>
+		<property name="prolongApplyDao"  ref="prolongApplyDao"></property>
+	</bean>
+	
+	<bean id="messageService"  class="cn.xaut.shop.service.impl.MessageServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="messageDao"></property>
+		<property name="messageDao"  ref="messageDao"></property>
+	</bean>
+	
+	<bean id="goodsService"  class="cn.xaut.shop.service.impl.GoodsServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="goodsDao"></property>
+		<property name="goodsDao"  ref="goodsDao"></property>
+	</bean>
+	
+	<bean id="goodsDetialService"  class="cn.xaut.shop.service.impl.GoodsDetialServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="goodsDetialDao"></property>
+		<property name="goodsDetialDao"  ref="goodsDetialDao"></property>
+	</bean>
+	
+	<bean id="goodsTypeService"  class="cn.xaut.shop.service.impl.GoodsTypeServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="goodsTypeDao"></property>
+		<property name="goodsTypeDao"  ref="goodsTypeDao"></property>
+	</bean>
+	
+	<bean id="goodsTypeItemService"  class="cn.xaut.shop.service.impl.GoodsTypeItemServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="goodsTypeItemDao"></property>
+		<property name="goodsTypeItemDao"  ref="goodsTypeItemDao"></property>
+	</bean>
+	
+	<bean id="goodsPictureService" class="cn.xaut.shop.service.impl.GoodsPictureServiceImpl"	parent="baseServiceR">
+	<property name="baseDao"  ref="goodsPictureDao"></property>
+		<property name="goodsPictureDao"  ref="goodsPictureDao"></property>
+	</bean>
+	<bean id="goodsEvaluationService" class="cn.xaut.shop.service.impl.GoodsEvaluationServiceImpl" parent="baseServiceR">
+	<property name="baseDao"  ref="goodsEvaluationDao"></property>
+		<property name="goodsEvaluationDao"  ref="goodsEvaluationDao"></property>
+	</bean>
+
+	<bean id="returnGoodsService"  class="cn.xaut.shop.service.impl.ReturnGoodsServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="returnGoodsDao"></property>
+		<property name="returnGoodsDao"  ref="returnGoodsDao"></property>
+	</bean>
+	
+	<bean id="shopEvaluationService"  class="cn.xaut.shop.service.impl.ShopEvaluationServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="shopEvaluationDao"></property>
+		<property name="shopEvaluationDao"  ref="shopEvaluationDao"></property>
+	</bean>
+	
+	<bean id="userPointService"  class="cn.xaut.shop.service.impl.UserPointServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="userPointDao"></property>
+		<property name="userPointDao"  ref="userPointDao"></property>
+	</bean>
+	
+	<bean id="marginDetailService"  class="cn.xaut.shop.service.impl.MarginDetailServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="marginDetailDao"></property>
+		<property name="marginDetailDao"  ref="marginDetailDao"></property>
+	</bean>
+	
+    <bean id="stageGoodsService"  class="cn.xaut.shop.service.impl.StageGoodsServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="stageGoodsDao"></property>
+		<property name="stageGoodsDao"  ref="stageGoodsDao"></property>
+	</bean>
+	
+	<bean id="stageOrderService"  class="cn.xaut.shop.service.impl.StageOrderServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="stageOrderDao"></property>
+		<property name="stageOrderDao"  ref="stageOrderDao"></property>
+	</bean>
+	
+	<bean id="hqlService"  class="cn.xaut.shop.service.impl.HqlServiceImpl"   parent="baseServiceR">
+		<property name="baseDao"  ref="hqlDao"></property>
+	</bean>
+	
+	<bean id="goodsStockService"  class="cn.xaut.shop.service.impl.GoodsStockServiceImpl"  parent="baseServiceR">
+		<property name="baseDao"  ref="goodsStockDao"></property>
+		<property name="goodsStockDao"  ref="goodsStockDao"></property>
+	</bean>
+	<bean id="expressService" class="cn.xaut.shop.service.impl.ExpressServiceImpl" parent="baseServiceR">
+	<property name="baseDao" ref="expressDao"></property>
+	<property name="expressDao" ref="expressDao"></property>
+	</bean>
+</beans>
+

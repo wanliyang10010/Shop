@@ -1,0 +1,136 @@
+body {
+	text-align: center;
+}
+
+em {
+	margin-left: 5px;
+	color: #e4393c;
+	font-style: normal;
+	font: 14px/150% Arial, Verdana, "\5b8b\4f53";
+}
+
+.tbl-deliver-wrapper {
+	width: 900px;
+	border: 1px solid #ff4001;
+	margin: 10px 0;
+}
+
+.tbl-deliver-add {
+	margin-left : 19%;
+}
+
+.tbl-deliver-add td {
+	height: 20px;
+	line-height: 20px;
+	text-align:left;
+}
+
+.c-picker {
+	width: 600px;
+}
+
+.btn_save {
+	display: inline-block;
+	zoom: 1;
+	height: 28px;
+	line-height: 28px;
+	padding: 0 20px;
+	color: #FFF;
+	font-weight: 700;
+	font-size: 14px;
+	text-align: center;
+	background: #ff4001;
+	border: 0;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.msg {
+	height: 21px;
+	font-weight: 700;
+	color: #fc6210;
+	text-align: center;
+}
+
+.tips {
+	height: 21px;
+	font-weight: 700;
+	color: #fc6210;
+	text-align: left;
+}
+
+.tbl-deliver-address {
+	width: 900px;
+	margin: 20px 0 40px 0;
+	/*	border:1px solid #ff4001;*/
+}
+
+.tb-main {
+	width: 100%;
+	border: 1px solid #e7e7e7; /*#ff4001;*/
+	table-layout: fixed;
+	margin-bottom: -5px;
+	text-align: center;
+	font: 400 14px/1.4 arial, sans-serif;
+}
+
+.col-man {
+	width: 90px;
+}
+
+.col-area {
+	width: 150px;
+}
+
+.col-address {
+	width: 220px;
+}
+
+.col-postcode {
+	width: 70px;
+}
+
+.col-phone {
+	width: 120px;
+}
+
+.note {
+	padding: 2px 5px;
+	border-color: #ff3800;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #ffd6cc;
+	color: #f30;
+}
+
+.tb-main tr {
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.tb-main  td {
+	padding: 5px;
+	white-space: normal;
+	word-wrap: break-word;
+	word-break: break-all;
+	position: relative;
+}
+
+.manage-address a {
+	color: #08c;
+	text-decoration: none;
+}
+
+.content {
+	width: 1000px;
+	border: 1px solid;
+}
+
+.ipt_txt {
+	width: 280px;
+}
+
+.distpicker select {
+	height: 22px;
+	line-height: 20px;
+}

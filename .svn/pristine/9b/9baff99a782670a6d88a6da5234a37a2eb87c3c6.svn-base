@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+   <package name="struts_shoppunish"   namespace="/" extends="json-default,struts-default">
+     <action name="marginDetailActionPhone_*" class="marginDetailActionPhone" method="{1}">			
+			<result  name="returnshopnameAndmargin"  type="json">				
+    			 <param name="root">
+    			 	responseJson	
+    			 </param>
+    		</result>
+    		<result  name="json"  type="json">				
+    			 <param name="root">
+    			 	jsonMap	
+    			 </param>
+    		</result>
+    		<result  name="subMargin"  type="json">
+				
+    			 <param name="root">
+    			 	responseJson	
+    			 </param>
+    		</result>
+    		<result  name="viewDeital"  type="json">
+				
+    			 <param name="root">
+    			 	responseJson	
+    			 </param>
+    		</result>
+    		
+    		<!-- 查看保证金详情 -->
+			<result name="marginDetailForShop"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+      </action>
+    </package>
+</struts>    

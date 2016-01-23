@@ -1,0 +1,17 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglibs.jspf"%>
+<table width="800px">
+	<tr>
+		<td align="center"><label for="textfield">时间：从</label> <input
+			class="Wdate" name="fromdate" id="fromdate" type="text"
+			value="${param.fromdate}"
+			onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})"
+			readonly="readonly"> <label for="textfield">到</label> <input
+			class="Wdate" name="todate" id="todate" type="text"
+			value="${param.todate}"
+			onFocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyy-MM-dd'})"
+			readonly="readonly"> <input id="btn_search" type="button"
+			style="width:80px;" value="查询" onclick="search();"></td>
+		</td>
+	</tr>
+</table>

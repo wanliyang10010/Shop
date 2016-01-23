@@ -1,0 +1,24 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ include file="taglibs.jspf"%>
+<s:if test="page.allRow > 0">
+	<div style="margin-top: 10px;margin-left: auto;margin-right: auto;">
+		<div style="float: left; position:relative; margin:0;">
+			共${page.allRow}条数据 ${page.currentPage}/${page.totalPage}页 每页显示 
+			<select name="selectPageSize" id="selectPageSize" onchange="changePageSize(this.options[this.selectedIndex].value);">
+				<c:forEach var="v" begin="5" end="15" step="5">
+					<option value="${v}" ${page.pageSize== v ? "selected=\"selected\"" : ""}>${v}</option>
+				</c:forEach>
+			</select> 条数据
+		</div>
+		<div style="float: right; position:relative;margin:0;">
+			<c:if test="${not page.firstPage}">
+				<a href="javascript:jumpPage(1);">首页</a>
+				<a href="javascript:jumpPage(${page.prePage});">上一页</a>
+			</c:if>
+			<c:if test="${not page.lastPage}">
+				<a href="javascript:jumpPage(${page.nextPage});">下一页</a>
+				<a href="javascript:jumpPage(${page.totalPage});">尾页</a>
+			</c:if>
+		</div>
+	</div>
+</s:if>

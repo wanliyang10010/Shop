@@ -1,0 +1,89 @@
+@CHARSET "UTF-8"
+.grid-bundle {
+		margin-bottom: 10px;
+		table-layout: fixed;
+		text-align: center;
+		border-collapse: collapse;
+	}
+	.tube-title {
+		text-align: left;
+		/* width: 254px; */
+	}
+	
+	.row-border td {
+		background: #b2d1ff;
+		height: 3px;
+		border-right: 2px solid #fff;
+	}
+	/* tbody .tube-main, .grid-bundle tbody .tube-postage  */
+	.blueline{
+		border-bottom: 1px solid #b4d0ff;
+		/* vertical-align:middle; */
+		
+	}
+	.tube-img {
+	 width: 15.4%; 
+	vertical-align: top;
+	}
+	.tube-master {
+		/*  width: 135px; */
+	/* 	padding-right: 8px; */
+		text-align: center;
+	/* 	vertical-align: center; */
+	}
+	.tube-price,.tube-amount,.tube-sum,.tube-dispute {
+		width: 15.4%;
+		text-align: center;
+	}
+	/* .tube-amount {
+		width: 15.4%;
+		text-align: center;
+	}
+	.tube-sum {
+		width: 15.4%;
+		text-align: center;
+	}
+	.tube-dispute {
+		width: 15.4%;
+		text-align: center;
+	} */
+
+	.memo {
+		/* position: relative;
+		float: left; */
+		color: #999;
+		/* margin-right: 10px; */
+	}
+	.tc-text {
+		margin-top:5px;
+	    border:0px;
+	     font-weight:bold;
+	     font-size: 12px;
+		width: 20%;
+		height: 15px;
+		line-height: 15px;
+		resize: none;
+		color: #999;
+		/* overflow: auto; */
+	}
+	.orderPay {
+	padding: 3px 0;
+	/* color: #999; */
+	}
+	#orderDate_id,#orderPay_id,#orderAddress_id,#orderPay_remark_id{
+	margin-left:3px;
+	}
+ 	table thead tr th{
+	/*  border:1px solid red;  */
+	text-align:center;
+	}
+	table tbody tr td{
+	/*  border:1px solid red;  */
+	text-align:center;
+	} 
+	.ststeDiv{
+	height:86px;
+	line-height: 86px;
+	width:100%;
+	
+	}

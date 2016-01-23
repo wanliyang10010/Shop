@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+	 
+	 <!-- 4 配置事务通知: 事务由事务管理器提供 -->
+	 <!-- required表示当前方法必须运行在一个事务环境中，如果一个现有事务正在运行中，该方法将运行这个事务，否则，就要开始一个新的事务。 -->
+     <!-- supports 表示当前方法不需要事务处理环境， 但如果有一个事务正在运行时，这个方法也可以运行在这个事务里 -->
+	 <tx:advice id="advice" transaction-manager="transactionManager">
+	 	<tx:attributes>
+	 		<tx:method name="save*" propagation="REQUIRED"/>
+	 		<tx:method name="delete*" propagation="REQUIRED"/>
+	 		<tx:method name="update*" propagation="REQUIRED"/>
+	 		<tx:method name="add*" propagation="REQUIRED"/>
+	 		<tx:method name="*" propagation="SUPPORTS" read-only="true"/>
+	 	</tx:attributes>
+	 </tx:advice>
+	 
+	 <!-- 对标注@transactional注解的bean进行加工处理，以植入事务管理切面 -->
+	 <!-- 对@Transactional这个注解进行的驱动，这是基于注解的方式使用事务配置声明 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>	 
+	 <!-- 5: 切入表达式: 配置运行的时候*包的*类切入通知 -->
+	 <aop:config>
+	 	<aop:pointcut expression="execution(* cn.xaut.shop.service.impl.*.*(..))" id="pointcut"/>
+	 	<aop:advisor advice-ref="advice" pointcut-ref="pointcut"/>
+	 </aop:config>
+	 
+</beans>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="Cart" catalog="shop" class="cn.xaut.shop.pojo.Cart">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="account" catalog="shop"
+		class="cn.xaut.shop.pojo.Account">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="goods" catalog="shop" class="cnxaut.shop.pojo.Goods">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="tb_cart" schema="SHOP"
+		class="cn.xaut.shop.pojo.Cart">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="tb_cart_items" schema="SHOP"
+		class="cn.xaut.shop.pojo.CartItem">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="tb_shop" schema="SHOP"
+		class="cn.xaut.shop.pojo.Shop">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="tb_product" schema="SHOP"
+		class="cn.xaut.shop.pojo.Product">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_USERINFO" schema="SHOP"
+		class="cn.xaut.shop.pojo.UserInfo">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_MARGINDETAIL" schema="SHOP"
+		class="cn.xaut.shop.pojo.MarginDetail">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_SHOPAPPLY" schema="SHOP"
+		class="cn.xaut.shop.pojo.ShopApply">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_MARGINRULE" schema="SHOP"
+		class="cn.xaut.shop.pojo.MarginRule">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_POINTSRULE" schema="SHOP"
+		class="cn.xaut.shop.pojo.PointsRule">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_DATERULE" schema="SHOP"
+		class="cn.xaut.shop.pojo.DateRule">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_CATEGORY" schema="SHOP"
+		class="cn.xaut.shop.pojo.Category">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_GOODS" schema="SHOP"
+		class="cn.xaut.shop.pojo.Goods">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_FAVOURITE" schema="SHOP"
+		class="cn.xaut.shop.pojo.Favourite">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_FAVOURITE_SHOP" schema="SHOP"
+		class="cn.xaut.shop.pojo.FavouriteShop">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_DISCOUNT" schema="SHOP"
+		class="cn.xaut.shop.pojo.Discount">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_PROLONGAPPLY" schema="SHOP"
+		class="cn.xaut.shop.pojo.ProlongApply">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_RETURNGOODS" schema="SHOP"
+		class="cn.xaut.shop.pojo.ReturnGoods">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_USER_POINT" schema="SHOP"
+		class="cn.xaut.shop.pojo.UserPoint">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_DISPUTE" schema="SHOP"
+		class="cn.xaut.shop.pojo.Dispute">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_GOODS_EVALUATION" schema="SHOP"
+		class="cn.xaut.shop.pojo.GoodsEvaluation">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_SHOP_EVALUATION" schema="SHOP"
+		class="cn.xaut.shop.pojo.ShopEvaluation">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+
+	<table name="TB_SHOP_EVALUATION" schema="SHOP"
+		class="cn.xaut.shop.pojo.ShopEvaluation">
+	</table>
+
+	<table name="TB_ORDERSON" schema="SHOP"
+		class="cn.xaut.shop.pojo.OrderSon">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_SHOP_EVALUATION" schema="SHOP"
+		class="cn.xaut.shop.pojo.ShopEvaluation">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_DATEITEM" schema="SHOP"
+		class="cn.xaut.shop.pojo.DateItem">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_MARGINITEM" schema="SHOP"
+		class="cn.xaut.shop.pojo.MarginItem">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_POINTSITEM" schema="SHOP"
+		class="cn.xaut.shop.pojo.PointsItem">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_MESSAGE" schema="SHOP"
+		class="cn.xaut.shop,pojo,Message">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_GOODSDETIAL" schema="SHOP"
+		class="cn.xaut.shop.pojo.GoodsDetial">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_GOODSTYPE" schema="SHOP"
+		class="cn.xatu.shop.pojo.GoodsType">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+
+	<table name="TB_ORDER" schema="SHOP"
+		class="cn.xaut.shop.pojo.Order">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_ORDERSON" schema="SHOP"
+		class="cn.xaut.shop.pojo.OrderSon">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+
+	<table name="TB_DELIVERADDR" schema="SHOP"
+		class="cn.xaut.shop.pojo.DeliverAddr">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+
+	<table name="TB_GOODSTYPEITEM" schema="SHOP"
+		class="cn.xaut.shop.pojo.GoodsTypeItem">
+	</table>
+
+	<table name="TB_STAGEGOODS" schema="SHOP"
+		class="cn.xaut.shop.StageGoods">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_STAGEORDER" schema="SHOP"
+		class="cn.xaut.shop.pojo.StageOrder">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_GOODSSTOCK" schema="SHOP"
+		class="cn.xaut.shop.pojo.GoodsStock">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="TB_USER_ROLE" schema="SHOP"
+		class="cn.xaut.shop.pojo.UserRole">
+	</table>
+<table name="TB_EXPRESS" schema="SHOP"
+	class="cn.xaut.shop.pojo.Express">
+	<primary-key>
+		<generator class="native"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>

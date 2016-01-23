@@ -1,0 +1,21 @@
+#fanhui{
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+}
+#fanhuiform{
+	float:right;
+	width:100%;
+}
+/* #fanhuibutton{
+	float:right;
+} */
+table{
+	float:right;
+	border: none;
+	
+}
+table tr td{
+    border: none;
+	
+}

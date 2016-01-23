@@ -1,0 +1,17 @@
+@CHARSET "UTF-8"
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+table thead tr th {
+	border: 1px solid black;
+	padding: 3px;
+	background-color: #cccccc;
+}
+
+table tbody tr td {
+	border: 1px solid black;
+	padding: 3px;
+}
+

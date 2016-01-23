@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- extends="/" -->
+	<package name="adminUserAction"   namespace="/" extends="json-default,struts-default">
+		<action name="adminUserActionPhone_*" class="cn.xaut.shop.phoneAction.AdminUserActionPhone" method="{1}">
+			
+			<result name="success" type="redirectAction">viewProductAction_MyShop.do</result>
+			<result name="failed" >/login.jsp</result>
+			<result name="back2url" type="redirect" >${goUrl}</result>
+			<result name="json" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="MesResetBack" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="viewmessageBack" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		<!-- <action name="userinfoAction_*" class="userInfoActionPhone" method="{1}">
+			
+			<result name="success" type="redirectAction">viewProductAction_MyShop.do</result>
+			<result name="failed" >/login.jsp</result>
+			<result name="back2url" type="redirect" >${goUrl}</result>
+			<result name="ListDateItem" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="list" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+		</action> -->
+		
+		<action name="superuserActionPhone_*" class="superUserActionPhone" method="{1}">
+			
+			<result name="success" type="redirectAction">viewProductAction_MyShop.do</result>
+			<result name="failed" >/login.jsp</result>
+			<result name="back2url" type="redirect" >${goUrl}</result>
+			<result name="ListDateItem" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="list" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		
+	</package>
+	
+</struts>    

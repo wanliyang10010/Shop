@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+body {
+	text-align: center;
+}
+
+table{
+	width:600px;
+	text-align: center;
+}
+
+#foot {
+	position: absolute;
+	left: expression((( body.clientWidth-50)/2) - 100 );
+	/*top: expression(( body.clientHeight-50)/2 );*/
+	width: 300px;
+	height: 50px;
+}

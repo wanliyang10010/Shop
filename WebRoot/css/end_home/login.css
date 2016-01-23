@@ -1,0 +1,23 @@
+#mytable{
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+#mytable tr td{
+    border: 1px solid black;
+	padding: 3px;
+}
+#mytable tr td:first-child span{
+	/* background-color:red; */
+	float:right;
+}
+div{
+	margin-left: auto;
+	margin-right: auto;
+	text-align:center;
+
+}
+#msg span{
+	color:red;
+}

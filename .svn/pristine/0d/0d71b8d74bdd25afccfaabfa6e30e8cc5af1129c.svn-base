@@ -1,0 +1,118 @@
+.tbl-order {
+	width: 800px;
+	table-layout: fixed;
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid;
+	/*background-color: #D8E8FD;*/
+	background-color: #CCC;
+}
+
+.grid-bundle { /*margin-bottom: 50px;*/
+	/*width:800px;*/
+	table-layout: fixed;
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.grid-bundle thead {
+	background-color: #F5F5F5;
+}
+
+.row-border td {
+	background: #b2d1ff;
+	height: 3px;
+	border-right: 2px solid #fff;
+}
+
+tbody .tube-main,.grid-bundle tbody .tube-postage {
+	border-bottom: 1px solid #b4d0ff;
+}
+
+.tube-title {
+	text-align: left;
+	width: 280px;
+}
+
+.tube-img {
+	text-align: center;
+	width: 60px;
+	vertical-align: top;
+}
+
+.tube-name {
+	width: 208px;
+	padding-right: 8px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.tube-price {
+	width: 180px;
+	text-align: center;
+}
+
+.tube-amount {
+	width: 180px;
+	text-align: center;
+}
+
+.tube-sum {
+	width: 180px;
+	text-align: center;
+}
+
+.tube-dispute {
+	width: 90px;
+	text-align: center;
+}
+
+.memo {
+	position: relative;
+	float: left;
+	color: #999;
+	margin-right: 10px;
+}
+
+.tc-text {
+	width: 360px;
+	height: 19px;
+	line-height: 19px;
+	resize: none;
+	overflow: auto;
+}
+
+.orderPay {
+	padding: 3px 0;
+	color: #999;
+}
+
+.tc-rmb {
+	color: red;
+}
+
+/***-------------------------------**/
+.tube-name  ul {
+	list-style: none;
+}
+
+.tube-name  ul li:last-child {
+	font-size: 10pt;
+}
+
+.emptyorder {
+	font-size: 1.5em;
+	color: red;
+}
+
+.gap {
+	width: 840px;
+	margin: 15px 0;
+	height: 2px;
+	border: none;
+	border-top: 1px dashed #0066CC;
+}

@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+
+.divcenter {margin:0px auto; border:solid 1px gray;width:800px;}
+		.shopname {border:1px solid #C4EEEC;font-size: 14px; font-weight: bold; text-align:left; background-color:#D8E8FD;}
+		.title {font-size: 14px;; font-weight: bold;border:1px solid #C4EEEC;text-align:center;margin:0px auto;}
+		.tablex {border-collapse:collapse; border-spacing:0; text-align:center; width:800px;}
+		.itemrow{background-color:#E2F4FC;}
+		.itemrowspan{background-color:#E2F4FC;border: 0px;}
+		.item {border:1px solid #C4EEEC;font-size: 14px;}
+		.itemlink {border:1px solid #C4EEEC;font-size: 12px;fontcolor:black;text-align:left;}
+		th,td {   
+		 padding: 0;   
+		}  
+	
+		a:link {color: black;text-decoration:none;} /* 未访问的链接 */
+		a:visited {color: black;text-decoration:none;} /*已访问的链接 */
+		a:hover {color: #FF0000;text-decoration:none;} /* 当有鼠标悬停在链接上 */
+		 /*a:active {color: #0000FF} 被选择的链接 */
+
+
+#shop th
+{
+	background-color:#F90;
+	border:#F90 1px solid;
+	height:40px;
+	color:#666;
+}
+
+#detail  ul {list-style:none;}
+
+
+
+
+.fl{float:left;}
+.fr{float:right;}
+
+.foot{margin-top:-12px;margin-right:-2px;color:#666;height:48px;border:1px solid #c8c8c8;background-color:#eaeaea;background-image:linear-gradient(RGB(241,241,241),RGB(226,226,226));position:relative;z-index:8;}
+.foot div, .foot a{line-height:48px;height:48px;}
+.foot .select-all{width:100px;height:48px;line-height:48px;padding-left:5px;color:#666;}
+.foot .closing{border-left:1px solid #c8c8c8;width:100px;text-align:center;color:#000;font-weight:bold;background:RGB(238,238,238);cursor:pointer;}
+.foot .total{margin:0 20px;cursor:pointer;}
+.foot  #priceTotal, .foot #selectedTotal{color:red;font-family:"Microsoft Yahei";font-weight:bold;}
+.foot .selected{cursor:pointer;}
+.foot .selected .arrow{position:relative;top:-3px;margin-left:3px;}
+.foot .selected .down{position:relative;top:3px;display:none;}
+.show .selected .down{display:inline;}
+.show .selected .up{display:none;}
+.foot .selected:hover .arrow{color:red;}
+.foot .selected-view{width:935px;border:1px solid #c8c8c8;position:absolute;height:auto;background:#ffffff;z-index:9;bottom:48px;left:-1px;display:none;}
+.show .selected-view{display:block;}
+.foot .selected-view div{height:auto;}
+.foot .selected-view .arrow{font-size:16px;line-height:100%;color:#c8c8c8;position:absolute;right:330px;bottom:-9px;}
+.foot .selected-view .arrow span{color:#ffffff;position:absolute;left:0px;bottom:1px;}
+
+
+.fr closing{float:right;}
+
+
+
+
+.invalid{
+	color:#EE6666;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-19 11:18:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="cn.xaut.shop.pojo">
+   <class name="Role" table="TB_ROLE">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+             <generator class="sequence">
+             	<param name="sequence">tb_role_seq</param>
+             </generator>
+        </id>
+        <property name="roleName" type="java.lang.String">
+            <column name="ROLE_NAME" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="enabled" type="java.lang.Integer">
+            <column name="ENABLED" />
+        </property>
+        <property name="isSys" type="java.lang.Integer">
+            <column name="ISSYS" />
+        </property>
+        <set name="users" table="TB_USER_ROLE" inverse="false" lazy="false">
+            <key>
+                <column name="ROLE_ID" />
+            </key>
+            <many-to-many class="UserInfo" column="USER_ID"/>
+        </set>
+        <set name="authorities" table="TB_ROLE_AUTHORITY" inverse="true" lazy="false">
+            <key>
+                <column name="ROLE_ID" />
+            </key>
+            <many-to-many class="Authority" column="AUTHORITY_ID" />
+        </set>
+    </class>
+</hibernate-mapping>

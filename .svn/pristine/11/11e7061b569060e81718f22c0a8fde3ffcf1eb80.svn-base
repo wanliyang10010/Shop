@@ -1,0 +1,144 @@
+@CHARSET "UTF-8"
+
+.this-noname {
+ width:890px;
+}
+
+tbody .tube-main, .grid-bundle tbody .tube-postage {
+		border-bottom: 1px solid #b4d0ff;
+	}
+
+.grid-bundle {
+		/*width:890px;*/
+		width:850px;
+		margin-bottom: 50px;
+		table-layout: fixed;
+		text-align: center;
+		border-collapse: collapse;
+		/*background-color: #D8E8FD;*/
+	}
+	
+	.grid-bundle thead{
+		background-color: #F5F5F5;
+	}
+	
+	.row-border td {
+		background: #b2d1ff;
+		height: 3px;
+		border-right: 2px solid #fff;
+	}
+	
+	
+	.tube-img {
+	width: 78px;
+	vertical-align: top;
+	}
+	.tube-master {
+		width: 165px;
+		padding-right: 8px;
+		text-align: left;
+		vertical-align: top;
+	}
+	.tube-price {
+		width: 205px;
+		text-align: center;
+	}
+	.tube-amount {
+		width: 205px;
+		text-align: center;
+	}
+	.tube-sum {
+		width: 205px;
+		text-align: center;
+	}
+
+    .tube-dispute {
+		 width: 90px; 
+		text-align: center;
+	}
+
+	.memo {
+		position: relative;
+		float: left;
+		color: #999;
+		margin-right: 10px;
+	}
+	.tc-text {
+		width: 360px;
+		height: 19px;
+		line-height: 19px;
+		resize: none;
+		overflow: auto;
+	}
+	.orderPay {
+	padding: 3px 0;
+	color: #999;
+	}
+	
+	.tc-rmb
+	{
+		color:red;
+	}
+
+/***-------------------------------**/
+	.tube-master  ul {
+	  list-style:none;
+	}
+	.tube-master  ul li:last-child{
+		font-size:10pt;
+	}
+	
+	
+.tube-master a:link {color: gray;text-decoration:none;} /* 未访问的链接 */	
+.tube-master a:visited {color: gray;text-decoration:none;} /*已访问的链接 */
+.tube-master a:hover {color: #FF0000;text-decoration:none;} /* 当有鼠标悬停在链接上 */
+	
+	/* ------------------------------------------------------*/
+	
+	
+
+/*嵌套的div 地址列表*/
+.divAddr{
+		margin: 10px 5px  10px 5px;
+		border: 1px solid black;
+	}
+	
+	
+.address {
+	width:900px;
+	margin-top: 20px;
+	/*border: 1px solid red*/
+	/*overflow: hidden;*/
+}
+
+.manage-address {
+	float: right;
+	font-size: 12px;
+	font-weight: 400;
+}
+	
+.address h3 {
+	font-size: 14px;
+	font-weight:700;
+	border-bottom: 2px solid #f1f1f1;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+
+.tbl_addr{
+	width:900px;
+}
+
+.orderdiv{
+	width:850px;
+	/*border: 1px solid blue;*/	
+}
+
+.orderdiv h3 {
+	font-size: 14px;
+	font-weight:700;
+	border-bottom: 2px solid #f1f1f1;
+	margin-bottom: 10px;
+	text-align: left;
+}

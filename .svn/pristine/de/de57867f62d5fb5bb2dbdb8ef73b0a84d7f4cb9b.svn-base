@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sendmail>
+		<mailServerHost>smtp.163.com</mailServerHost>
+		<mailServerPort>25</mailServerPort>
+		<validate>true</validate>
+		<userName>feifei6513</userName>
+		<password>2732530</password>
+		<fromAddress>feifei6513@163.com</fromAddress>	
+</sendmail>

@@ -1,0 +1,27 @@
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="webkit" name="renderer">
+    <link rel="shortcut icon" href="${ctx}/image/favicon.ico" >
+    <link rel="icon" type="image/gif" href="${ctx}/image/animated_favicon.gif" >
+    <script src="${ctx}/js/jQuery/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">var ctx = "${ctx }";</script>
+    <script src="${ctx}/artDialog/dialog-min.js" type="text/javascript"></script>
+    <script src="${ctx}/artDialog/dialog-alter-confirm.js" type="text/javascript"></script>
+    <script src="${ctx}/js/common/AjaxSession.js" type="text/javascript"></script>
+    <script src="${ctx}/js/MyShop/ddsmoothmenu.js" type="text/javascript"></script>
+    <script src="${ctx}/js/top.js" type="text/javascript"></script>
+    
+    <link href="${ctx}/css/MyShop/templatemo_style.css" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/css/MyShop/nivo-slider.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/css/MyShop/ddsmoothmenu.css" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/artDialog/ui-dialog.css" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/artDialog/ui-dialog-color.css" rel="stylesheet" type="text/css"/>
+    <link href="${ctx}/css/top-head.css" rel="stylesheet"/>
+    <script type="text/javascript">
+      $().ready(function () {
+        if(!('${userid}' === '')){
+          getUserMessage();
+          getCartItemCount();  
+        }
+      });
+    </script>

@@ -1,0 +1,17 @@
+
+table {
+	border: 0px solid black;
+	border-collapse: collapse;
+}
+
+table thead tr th {
+	border: 0px solid black;
+	padding: 3px;
+	background-color: #cccccc;
+}
+
+.table tbody tr td {
+	/* font-size: 14px; */
+	border-bottom: 1px solid black;
+	margin-bottom: 1px;
+}

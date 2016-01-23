@@ -1,0 +1,45 @@
+#mytable{
+	margin-left: auto;
+	margin-right: auto;
+	/* border: 1px solid black;
+	border-collapse: collapse; */
+}
+/* #mytable tr td{
+    border: 1px solid black;
+	padding: 3px;
+} */
+#formFather{
+	margin-left: auto;
+	margin-right: auto;
+}
+/* 该class是struts 自带的 */
+#sform{
+	/* background-color:red; */
+	margin-left: auto;
+	margin-right: auto;
+	/* font-family: "Times New Roman"; */
+}
+#selectId{
+	/* margin-left: 28%;
+	margin-right: auto; */ 
+	/* float:right; */
+}
+table{
+	margin-left: auto;
+	margin-right: auto;
+}
+#mysubmit{
+	width:100px;
+}
+
+#fanhui{
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+}
+#fanhuiform{
+	width:100%;
+}
+#fanhuibutton{
+	float:right;
+}

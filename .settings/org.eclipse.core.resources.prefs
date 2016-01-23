@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//WebRoot/common/top-head.jspf=UTF-8
+encoding//WebRoot/common/top-nav.jspf=UTF-8
+encoding//WebRoot/error/404.jsp=UTF-8
+encoding//WebRoot/shopManage/marginDetail.jsp=UTF-8
+encoding//WebRoot/user/UserMessage.jsp=UTF-8
+encoding//src/cn/xaut/shop/action/BaseAction.java=UTF-8
+encoding//src/cn/xaut/shop/action/UserInfoAction.java=UTF-8
+encoding//src/cn/xaut/shop/service/impl/BaseServiceImpl.java=UTF-8
+encoding//src/cn/xaut/shop/service/impl/UserInfoServiceImpl.java=UTF-8
+encoding/<project>=UTF-8
+separateDerivedEncodings=true

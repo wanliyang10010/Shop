@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<!-- 
+	<package name="error" extends="struts-default">
+		<default-action-ref name="notFound" />
+		<action name="notFound">
+			<result>/error/404.jsp</result>
+		</action>
+	</package>
+	namespace="/"
+  -->
+	<package name="orderPhone"  extends="json-default,struts-default" namespace="/">
+	<!--  	<action name="favouriteAction_*" class="favouriteAction" method="{1}">
+			<result name="list">/users/favouritelist.jsp</result>
+			<result name="json"  type="json" >
+				
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		<action name="favouriteShopAction_*" class="favouriteShopAction" method="{1}">
+			<result name="list">/users/favouriteshop-list.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>-->
+		<!--徐乐 收货地址管理  -->
+		<action name="deliverAddrActionPhone_*" class="deliverAddrActionPhone" method="{1}">
+			<result name="listDeliverAddr"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="addDeliverAddr"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="updateDeliverAddr"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="deleteDeliverAddr"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="deliverAdrr"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="deliverAdrr5"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action> 	 															    
+	</package>
+</struts>    

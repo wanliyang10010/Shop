@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- ===================华丽分割线 =====================  -->
+	<!-- 上面是Serviec层的配置 ↑   下面是DAO层的配置 ↓ -->
+	<!-- ===================华丽分割线 =====================  -->
+	
+	
+	<!-- 实现了DAO层后的 DAO基类 -->
+	<bean id="baseDao" class="cn.xaut.shop.modules.repository.hibernate3.HibernateRepository" lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- parent 在Spring配置文件中找父类，父类通过Spring的方式创建，这样父类就可以实现依赖注入 -->
+	<bean id="userDao" class="cn.xaut.shop.dao.impl.UserDaoImpl"  parent="baseDao" />
+	<bean id="productDao"  class="cn.xaut.shop.dao.impl.ProductDaoImpl"   parent="baseDao"/>
+	<bean id="favouriteDao"  class="cn.xaut.shop.dao.impl.FavouriteDaoImpl"  parent="baseDao"/>
+	<bean id="favouriteShopDao"  class="cn.xaut.shop.dao.impl.FavouriteShopDaoImpl" parent="baseDao"/>
+	<bean id="cartDao"  class="cn.xaut.shop.dao.impl.CartDaoImpl" parent="baseDao"/>
+	<bean id="cartItemDao"  class="cn.xaut.shop.dao.impl.CartItemDaoImpl" parent="baseDao"/>
+	<bean id="orderDao" class="cn.xaut.shop.dao.impl.OrderDaoImpl"  parent="baseDao" />
+	<bean id="addrDao"  class="cn.xaut.shop.dao.impl.DeliverAddrDaoImpl" parent="baseDao"/>
+
+	<bean id="dateItemDao"  class="cn.xaut.shop.dao.impl.DateItemDaoImpl" parent="baseDao"/>
+	<bean id="dateRuleDao"  class="cn.xaut.shop.dao.impl.DateRuleDaoImpl" parent="baseDao"/>
+	<bean id="marginItemDao"  class="cn.xaut.shop.dao.impl.MarginItemDaoImpl" parent="baseDao"/>
+	<bean id="marginRuleDao"  class="cn.xaut.shop.dao.impl.MarginRuleDaoImpl" parent="baseDao"/>
+	<bean id="pointsItemDao"  class="cn.xaut.shop.dao.impl.PointsItemDaoImpl" parent="baseDao"/>
+	<bean id="pointsRuleDao"  class="cn.xaut.shop.dao.impl.PointsRuleDaoImpl" parent="baseDao"/>
+	<bean id="discountDao"  class="cn.xaut.shop.dao.impl.DiscountDaoImpl" parent="baseDao"/>
+	<bean id="disputeDao"  class="cn.xaut.shop.dao.impl.DisputeDaoImpl" parent="baseDao"/>
+	<bean id="disputeFileDao"  class="cn.xaut.shop.dao.impl.DisputeFileDaoImpl" parent="baseDao"/>
+
+	<bean id="shopApplyDao"  class="cn.xaut.shop.dao.impl.ShopApplyDaoImpl" parent="baseDao"/>
+    <bean id="shopDao"  class="cn.xaut.shop.dao.impl.ShopDaoImpl" parent="baseDao"/>
+    <bean id="goodsDao"  class="cn.xaut.shop.dao.impl.GoodsDaoImpl" parent="baseDao"/>
+    <bean id="goodsDetialDao"  class="cn.xaut.shop.dao.impl.GoodsDetialDaoImpl" parent="baseDao"/>
+    <bean id="goodsTypeDao"  class="cn.xaut.shop.dao.impl.GoodsTypeDaoImpl" parent="baseDao"/>
+    <bean id="goodsTypeItemDao"  class="cn.xaut.shop.dao.impl.GoodsTypeItemDaoImpl" parent="baseDao"/>
+    <bean id="goodsPictureDao"  class="cn.xaut.shop.dao.impl.GoodsPictureDaoImpl" parent="baseDao"/>
+    <bean id="messageDao"  class="cn.xaut.shop.dao.impl.MessageDaoImpl" parent="baseDao"/>
+	<bean id="marginDetailDao"  class="cn.xaut.shop.dao.impl.MarginDetailDaoImpl" parent="baseDao"/>
+	<bean id="prolongApplyDao"  class="cn.xaut.shop.dao.impl.ProlongApplyDaoImpl" parent="baseDao"/>
+	<bean id="returnGoodsDao"  class="cn.xaut.shop.dao.impl.ReturnGoodsDaoImpl" parent="baseDao"/>
+	<bean id="goodsEvaluationDao"  class="cn.xaut.shop.dao.impl.GoodsEvaluationDaoImpl" parent="baseDao"/>
+	<bean id="shopEvaluationDao"  class="cn.xaut.shop.dao.impl.ShopEvaluationDaoImpl" parent="baseDao"/>
+	<bean id="userPointDao"  class="cn.xaut.shop.dao.impl.UserPointDaoImpl" parent="baseDao"/>
+	<bean id="stageGoodsDao"  class="cn.xaut.shop.dao.impl.StageGoodsDaoImpl" parent="baseDao"/>
+	<bean id="stageOrderDao"  class="cn.xaut.shop.dao.impl.StageOrderDaoImpl" parent="baseDao"/>
+	<bean id="goodsStockDao"  class="cn.xaut.shop.dao.impl.GoodsStockDaoImpl" parent="baseDao"/>
+	<bean id="hqlDao"  class="cn.xaut.shop.dao.impl.HqlDaoImpl" parent="baseDao"/>
+	<bean id="expressDao" class="cn.xaut.shop.dao.impl.ExpressDaoImpl" parent="baseDao"/>
+</beans>
+

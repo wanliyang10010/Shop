@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 下面是Action配置 -->
+
+	<!-- <bean id="myAction" class="com.xaut.shop.action.TestAction"> <property 
+		name="categoryServiceImpl" ref="categoryServiceImpl"></property> </bean> -->
+
+	<!-- scope="prototype" 使该类在用的时候才去创建(原型模式) -->
+	<bean id="baseAction" class="cn.xaut.shop.action.BaseAction" scope="prototype">
+		<property name="orderService" ref="orderService"></property>
+		<property name="orderSonService" ref="orderSonService"></property>
+		<property name="fileUploadUtil" ref="fileUploadUtil"></property>
+		<property name="cartService" ref="cartService"></property>
+		<property name="cartItemService" ref="cartItemService"></property>
+		<property name="shopService" ref="shopService"></property>
+		<property name="userInfoService" ref="userInfoService"></property>
+		<property name="marginDetailService" ref="marginDetailService"></property>
+		<property name="marginRuleService" ref="marginRuleService"></property>
+		<property name="pointsRuleService" ref="pointsRuleService"></property>
+		<property name="dateRuleService" ref="dateRuleService"></property>
+		<property name="shopApplyService" ref="shopApplyService"></property>
+		<property name="disputeService" ref="disputeService"></property>
+		<property name="disputeFileService" ref="disputeFileService"></property>
+		<property name="goodsService" ref="goodsService" />
+		<property name="goodsPictureService" ref="goodsPictureService" />
+		<property name="goodsDetialService" ref="goodsDetialService" />
+		<property name="goodsTypeService" ref="goodsTypeService" />
+		<property name="goodsTypeItemService" ref="goodsTypeItemService" />
+		<property name="favouriteService" ref="favouriteService" />
+		<property name="favouriteShopService" ref="favouriteShopService" />
+		<property name="prolongApplyService" ref="prolongApplyService"></property>
+		<property name="returnGoodsService" ref="returnGoodsService"></property>
+		<property name="goodsEvaluationService" ref="goodsEvaluationService"></property>
+		<property name="shopEvaluationService" ref="shopEvaluationService"></property>		
+		<property name="userPointService" ref="userPointService"></property>
+		<property name="discountService" ref="discountService"></property>
+		<property name="dateItemService" ref="dateItemService"></property>
+		<property name="marginItemService" ref="marginItemService"></property>
+		<property name="pointsItemService" ref="pointsItemService"></property>
+		<property name="deliverAddrService" ref="deliverAddrService"></property>
+		<property name="messageService" ref="messageService"></property>
+		<property name="mailSender" ref="mailSender"></property>
+		<property name="stageGoodsService" ref="stageGoodsService" />
+		<property name="stageOrderService" ref="stageOrderService" />
+		<property name="goodsStockService" ref="goodsStockService" />
+		<property name="expressService" ref="expressService"/>
+	</bean>
+
+ 	 <bean id="orderAction" class="cn.xaut.shop.action.OrderAction"   scope="prototype"  parent="baseAction"/>
+ 	 <bean id="orderSonAction" class="cn.xaut.shop.action.OrderSonAction"   scope="prototype"  parent="baseAction"/>
+ 	 <bean id="cartAction" class="cn.xaut.shop.action.CartAction"    scope="prototype"  parent="baseAction"/>
+ 	 <bean id="cartItemAction" class="cn.xaut.shop.action.CartItemAction" scope="prototype"  parent="baseAction"/>
+ 	 <bean id="userInfoAction" class="cn.xaut.shop.action.UserInfoAction" scope="prototype"  parent="baseAction"/>
+ 	 <bean id="marginDetailAction" class="cn.xaut.shop.action.MarginDetailAction"  scope="prototype"  parent="baseAction"/>
+	 <bean id="marginRuleAction" class="cn.xaut.shop.action.MarginRuleAction"  scope="prototype"  parent="baseAction"/>
+	 <bean id="pointsRuleAction" class="cn.xaut.shop.action.PointsRuleAction"  scope="prototype"  parent="baseAction"/>
+	 <bean id="dateRuleAction" class="cn.xaut.shop.action.DateRuleAction"  scope="prototype"  parent="baseAction"/>
+	 <bean id="shopAction" class="cn.xaut.shop.action.ShopAction"  scope="prototype"  parent="baseAction"/>
+	 <bean id="shopStateAction" class="cn.xaut.shop.action.ShopAction"  scope="prototype"  parent="baseAction"/>
+	 <bean id="shopApplyAction" class="cn.xaut.shop.action.ShopApplyAction"  scope="prototype"  parent="baseAction"/>
+	 <bean id="disputeAction" class="cn.xaut.shop.action.DisputeAction"  scope="prototype"  parent="baseAction"/>
+	 <bean id="disputeFileAction" class="cn.xaut.shop.action.DisputeFileAction"  scope="prototype"  parent="baseAction"/>
+	 <bean id="goodsAction" class="cn.xaut.shop.action.GoodsAction" parent="baseAction" scope="prototype" />
+	 <bean id="goodsPictureAction" class="cn.xaut.shop.action.GoodsPictureAction" parent="baseAction" scope="prototype" />
+	 <bean id="goodsDetialAction" class="cn.xaut.shop.action.GoodsDetialAction" parent="baseAction" scope="prototype" />
+	 <bean id="goodsTypeAction" class="cn.xaut.shop.action.GoodsTypeAction" parent="baseAction" scope="prototype" />
+	 <bean id="goodsTypeItemAction" class="cn.xaut.shop.action.GoodsTypeItemAction" parent="baseAction" scope="prototype" />
+	 <bean id="viewProductAction" class="cn.xaut.shop.action.ViewProductAction" parent="baseAction" scope="prototype" />
+	 <bean id="viewProductActionShopSearch" class="cn.xaut.shop.action.ViewProductActionShopSearch" parent="baseAction" scope="prototype" />
+	 <bean id="favouriteAction" class="cn.xaut.shop.action.FavouriteAction" parent="baseAction" scope="prototype" />
+	 <bean id="favouriteShopAction" class="cn.xaut.shop.action.FavouriteShopAction" parent="baseAction" scope="prototype" />
+	 <bean id="prolongApplyAction" class="cn.xaut.shop.action.ProlongApplyAction" parent="baseAction" scope="prototype" />
+	 <bean id="returnGoodsAction" class="cn.xaut.shop.action.ReturnGoodsAction" parent="baseAction" scope="prototype" />
+	 <bean id="goodsEvaluationAction" class="cn.xaut.shop.action.GoodsEvaluationAction" parent="baseAction" scope="prototype" />
+	 <bean id="shopEvaluationAction" class="cn.xaut.shop.action.ShopEvaluationAction" parent="baseAction" scope="prototype" />	
+	 <bean id="userPointAction" class="cn.xaut.shop.action.UserPointAction" parent="baseAction" scope="prototype" />		 
+	 <bean id="discountAction" class="cn.xaut.shop.action.DiscountAction" parent="baseAction" scope="prototype" />
+	 <bean id="dateItemAction" class="cn.xaut.shop.action.DateItemAction" parent="baseAction" scope="prototype" />
+	 <bean id="marginItemAction" class="cn.xaut.shop.action.MarginItemAction" parent="baseAction" scope="prototype" />
+	 <bean id="pointsItemAction" class="cn.xaut.shop.action.PointsItemAction" parent="baseAction" scope="prototype" />
+	 <bean id="deliverAddrAction" class="cn.xaut.shop.action.DeliverAddrAction" parent="baseAction" scope="prototype" />
+	 <bean id="superUserAction" class="cn.xaut.shop.action.SuperUserAction" scope="prototype"  parent="baseAction"/>
+	 <bean id="adminUserAction" class="cn.xaut.shop.action.AdminUserAction" scope="prototype"  parent="baseAction"/>
+	 <bean id="decorationShopAction" class="cn.xaut.shop.action.DecorationShopAction" parent="baseAction" scope="prototype" />
+	 <bean id="messageAction" class="cn.xaut.shop.action.MessageAction" parent="baseAction" scope="prototype" />
+	 <bean id="stageGoodsAction" class="cn.xaut.shop.action.StageGoodsAction" parent="baseAction" scope="prototype" />
+	 <bean id="stageOrderAction" class="cn.xaut.shop.action.StageOrderAction" parent="baseAction" scope="prototype" />
+	 <bean id="goodsStockAction" class="cn.xaut.shop.action.GoodsStockAction" parent="baseAction" scope="prototype" />
+	 <!-- B: hx -->
+	 <bean  id="userLoginAction" class="cn.xaut.shop.action.UserLoginAction" parent="baseAction" scope="prototype"></bean>
+	 <bean  id="unifiedLogin" class="cn.xaut.shop.action.UnifiedLogin" parent="baseAction" scope="prototype"></bean>
+	 <!-- D: hx -->
+	 <bean id="hqlAction" class="cn.xaut.shop.action.HqlAction" parent="baseAction" scope="prototype" />
+	 <bean id="preOrderAction" class="cn.xaut.shop.action.PreOrderAction" parent="baseAction" scope="prototype" />
+	 <bean id="submitOrderAction" class="cn.xaut.shop.action.SubmitOrderAction" parent="baseAction" scope="prototype" />
+	 <bean id="expressAction" class="cn.xaut.shop.action.ExpressAction" parent="baseAction" scope="prototype" />
+</beans>
+

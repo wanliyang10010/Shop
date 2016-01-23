@@ -1,0 +1,123 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglibs.jspf"%>
+<!doctype html>
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<s:token />
+<title>商品类别管理</title>
+	<%@ include file="/common/top-head.jspf"%>
+<link rel="stylesheet" type="text/css"  href="${ctx}/css/page.css" /> 
+<script type="text/javascript" src="${ctx}/js/web1.js"></script>
+<script type="text/javascript" src="${ctx}/js/GoodsType/GoodsTypeManage.js"></script>
+
+</head>
+<body>
+<div align="center" style="margin-top:-40px;">
+		<%@ include file="/common/top-nav.jspf"%>
+	</div>
+<div id="templatemo_main">
+	<center>
+		<form name="form1" action="" id="form1">
+		<input type="hidden" id="authorizedToken" name="authorizedToken" value="${sessionScope.userid }" />
+		<input type="hidden" name="page.pageNo" id="pageNo" value="${page.pageNo}"/>
+	  <input type="hidden" name="page.pageSize" id="pageSize" value="${page.pageSize}"/>
+	  <input type="hidden" name="shopId" id="shopId" value="${shop.shopId}"/>
+	  <input type="hidden" name="gtypeId" id="gtypeId"/>
+			 <table width="800">
+                        <tr> 
+                                     <td align="right" width="30%" >
+                                        <label for="textfield">店铺名称：</label>
+                                    </td>
+                                    <td align="left">
+                                      <label for="textfield">${sessionScope.shop.shopname}</label>
+                                    </td>
+                                </tr>
+                                 <tr> 
+                                     <td align="right">
+                                        <label for="textfield">店铺类别：</label>
+                                    </td>
+                                    <td align="left">
+                                     <label for="textfield">${sessionScope.shop.shopcategory}</label>
+                                    </td>
+                                     </tr>
+                                 <tr> 
+                                     <td align="right">
+                                        <label for="textfield">注册时间：</label>
+                                    </td>
+                                    <td align="left">
+                                     <label for="textfield">${sessionScope.shop.regeditdate}</label>
+                                    </td>
+                                 </tr>
+				<tr>
+					<td align="right"><label for="textfield">商品类别：</label></td>
+					<td align="left">${shop.productcategory}</td>
+				</tr>
+				<tr>
+					<td align="right"><label for="textfield">商品二级类别：</label></td>
+					<td align="left"><input type="text" name="typename" id="typename" size="40" maxlength="15">
+					</td>
+				</tr>
+				<tr>
+					<td align="right"><label for="textfield">备注信息：</label></td>
+					<td align="left">
+					 <textarea rows="3" cols="60" name="remark" id="remark" maxlength="50"  onkeyup="if(value.length>50) value=value.substr(0,50)"
+					  style="overflow:hidden"></textarea>
+					</td>
+				</tr>
+				<tr>
+				<tr>
+					<td align="center" colspan="2">
+					<input type="button" name="btn_update" id="btn_update" value="修改" onclick="update();" style="display:none"> 
+					  &nbsp;&nbsp; 
+					<input type="button" name="btn_submit" id="btn_submit" value="添加" onclick="add();">
+					 &nbsp;&nbsp; 
+					<input type="button" name="btn_cancel" id="btn_cancel" value="取消" onclick="cancel();"></td>
+				</tr>
+			</table>
+			<div>
+		 <table width="800">
+                                <tr>
+                                    <td align="right" style=" width:30%" >
+                                    <label for="textfield">商品二级类别：</label>
+                                    </td>
+                                    <td align="left">
+                                       <input type="text" name="keyword" id="keyword" size="25" value="${param.keyword}">
+                                         <button id="btn_submit"  onclick="search();" >查询</button>
+                                    </td>
+                                </tr>
+                            </table>		
+	<c:if test="${msg==''}"> 		
+       <table width="800"  align="center" >
+	     <tr height="40">
+	          <td align="center" width=10%>序号</td>
+		      <td align="center" width=30%>商品类别名称</td>
+		      <td align="center" width=30%>备注</td>
+		      <td align="center" width=30%>操作</td>
+	     </tr>
+		     <s:iterator value="#request.page" status="s">
+		    <tr>
+		         <td  align="center"  width=10%>${s.count+(page.pageNo-1)*page.pageSize}</td>
+		        <td align="center" width=30%>${typename}</td>
+			    <td align="center"  width="30%">${remark}</td>
+			     <td  align="center"  width=30%>
+			     <a href="javascript:typeitem('${gtypeId}');">编辑属性项</a> &nbsp; 
+			    	<a href="javascript:updateType('${gtypeId}','${typename}','${remark}');">修改</a>  &nbsp;  
+			    	<a href="javascript:deletetype('${gtypeId}');">删除</a> &nbsp; 
+			     </td>
+		    </tr>
+	    	   </s:iterator>
+	   </table>
+	  </c:if>
+	    <%@ include file="/common/pagination.jspf" %>
+	         <div id="msg" >
+	              <font color="red" id="font1" >${msg}</font>
+	   
+			</div>
+		</form>
+	</center>
+	 <br/>
+	  <br/>
+	</div>
+</body>
+</html>

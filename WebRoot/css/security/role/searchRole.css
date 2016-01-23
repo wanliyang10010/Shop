@@ -1,0 +1,71 @@
+#pagecontent{
+	/* position:relative;
+	float:left; */
+	
+	/* background-color:red; */
+	margin-left: auto;
+	margin-right: auto;
+}
+#myresult {
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+#myresult thead tr th {
+	border: 1px solid black;
+	padding: 3px;
+	background-color: #cccccc;
+}
+
+#myresult tbody tr td {
+	border: 1px solid black;
+	padding: 3px;
+}
+#mytable{
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+#mytable tr td{
+    border: 1px solid black;
+	padding: 3px;
+}
+#mytable tr td:first-child span{
+	/* background-color:red; */
+	float:right;
+}
+#mytable tr td:nth-child(2){
+	/* background-color:blue; */
+	
+}
+#mytable tr td:nth-child(2)  .myinput{
+	/* background-color:green; */
+	width:300px;
+}
+
+#mytable tr td:nth-child(2)  .mytextarea{
+	/* background-color:green; */
+	width:300px;
+}
+#mytable tr:last-child td{
+	/* background-color:purple; */
+	width:300px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:right;
+	
+}
+#fanhui{
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+}
+#fanhuiform{
+	width:100%;
+}
+#fanhuibutton{
+	float:right;
+}

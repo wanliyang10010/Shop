@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<!-- 
+	<package name="error" extends="struts-default">
+		<default-action-ref name="notFound" />
+		<action name="notFound">
+			<result>/error/404.jsp</result>
+		</action>
+	</package>
+  -->
+	<package name="order" extends="public" namespace="/order">
+	
+		<action name="notFound">
+			<result>/error/404.jsp</result>
+		</action>
+	
+	    <action name="submitOrderAction_*" class="submitOrderAction" method="{1}">
+	    	<!-- 
+	    	<interceptor-ref name="token" >
+	    		<param name="includeMethods">saveOrderbylist</param>
+	    	</interceptor-ref>
+	    	<interceptor-ref name="tokenSession" />
+	    	<interceptor-ref name="defaultStack" />
+	    	<result name="invalid.token">/users/order/resubmitorder.jsp</result>
+	    	 -->  
+	    	<result name="confirmOrders">/users/order/confirmOrder.jsp</result>
+	    	<result name="returnCart" type="chain">
+	    		<param name="actionName">cartAction_queryCarts</param>
+  				<param name="namespace">/</param>
+	    	</result>
+	    	<result name="preOrders">/users/order/preOrders.jsp</result>
+			
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<!-- 
+		<action name="saveOrderAction_*" class="orderAction" method="{1}">
+			<interceptor-ref name="tokenSession" />
+	    	<interceptor-ref name="defaultStack" />
+	    	<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		 -->
+		 
+		<action name="preOrderAction_*" class="preOrderAction" method="{1}">
+	    	<result name="returnCart" type="chain">
+	    		<param name="actionName">cartAction_queryCarts</param>
+  				<param name="namespace">/</param>
+	    	</result>
+	    	<result name="preOrders">/users/order/preOrders.jsp</result>
+		</action>
+		
+		<action name="buyNowAction_*" class="orderAction" method="{1}">
+			<interceptor-ref name="tokenSession" >
+	    		<param name="includeMethods">saveOneOrder</param>
+	    	</interceptor-ref>
+	    	<interceptor-ref name="defaultStack" />
+	    	<result name="buyNow">/users/order/buy_now.jsp</result>
+			<result name="userOrderlist" type="redirectAction">orderAction!haveBuyGoods.action</result>
+			<result name="goodPage" type="redirect">/viewProductAction_product.do?gid=${gid}</result>
+	    	<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+	
+		<action name="favouriteAction_*" class="favouriteAction" method="{1}">
+			<result name="list">/users/favouritelist.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="favouriteShopAction_*" class="favouriteShopAction" method="{1}">
+			<result name="list">/users/favouriteshop-list.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="deliverAddrAction_*" class="deliverAddrAction" method="{1}">
+			<result name="invalid.token">/users/deliverAddr/resubmit.jsp</result>  
+			<result name="list">/users/deliverAddr/MyAddr.jsp</result>
+			<result name="query" type="redirectAction">deliverAddrAction!list</result>
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="hql" extends="public" namespace="/hql">
+		<action name="hqlAction_*" class="hqlAction" method="{1}">
+			<result name="list">/WEB-INF/dboperation/db.jsp</result>
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+	</package>
+
+</struts>    

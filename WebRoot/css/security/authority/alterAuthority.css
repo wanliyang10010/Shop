@@ -1,0 +1,54 @@
+#authorityName{
+	background-color:#eee;
+}
+#mytable{
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+	width:65%;
+}
+#mytable tr td{
+    border: 1px solid black;
+	padding: 3px;
+}
+#mytable tr td:first-child {
+	width:20%;
+}
+#mytable tr td:first-child span{
+	/* background-color:red; */
+	float:right;
+}
+#mytable tr td:nth-child(2){
+	/* background-color:blue; */
+	width:80%;
+	
+}
+#mytable tr td:nth-child(2)  .myinput{
+	/* background-color:green; */
+	width:98%;
+}
+
+#mytable tr td:nth-child(2)  .mytextarea{
+	/* background-color:green; */
+	width:98%;
+}
+#mytable tr:last-child td{
+	/* background-color:purple; */
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:center;
+	
+}
+#fanhui{
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+}
+#fanhuiform{
+	width:100%;
+}
+#fanhuibutton{
+	float:right;
+}

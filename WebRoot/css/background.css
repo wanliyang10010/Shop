@@ -1,0 +1,24 @@
+/* CSS Document */
+   /* html{    
+ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#E0FFFF,endColorstr=#00BFFF,grandientType=1); 
+ }*/
+body{ 
+     background-image: url('../image/back5.jpg');
+     background-repeat: repeat-x|repeat-y; 
+ }   
+   
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+table thead tr th {
+	border: 1px solid black;
+	padding: 3px;
+	background-color: #cccccc;
+}
+
+table tbody tr td {
+	border: 1px solid black;
+	padding: 3px;
+}

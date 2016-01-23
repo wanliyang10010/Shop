@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!-- 下面是Action配置 -->
+
+	<!-- <bean id="myAction" class="com.xaut.shop.action.TestAction"> <property 
+		name="categoryServiceImpl" ref="categoryServiceImpl"></property> </bean> -->
+
+	<!-- scope="prototype" 使该类在用的时候才去创建 -->
+	
+     
+ 	 <bean id="orderActionPhone"   class="cn.xaut.shop.phoneAction.OrderActionPhone"   scope="prototype"  parent="baseAction"/>
+ 	 <bean id="orderSonActionPhone"   class="cn.xaut.shop.phoneAction.OrderSonActionPhone"   scope="prototype"  parent="baseAction"/>
+ 	 <bean id="cartActionPhone"    class="cn.xaut.shop.phoneAction.CartActionPhone"    scope="prototype"  parent="baseAction"/>
+ 	 <bean id="cartItemActionPhone" class="cn.xaut.shop.phoneAction.CartItemActionPhone" scope="prototype"  parent="baseAction"/>
+ 	 <bean id="userInfoActionPhone" class="cn.xaut.shop.phoneAction.UserInfoActionPhone" scope="prototype"  parent="baseAction"/>
+ 	 <bean id="marginDetailActionPhone" class="cn.xaut.shop.phoneAction.MarginDetailActionPhone"  scope="prototype"  parent="baseAction"/>
+	 <bean id="marginRuleActionPhone" class="cn.xaut.shop.phoneAction.MarginRuleActionPhone"  scope="prototype"  parent="baseAction"/>
+	 <bean id="pointsRuleActionPhone" class="cn.xaut.shop.phoneAction.PointsRuleActionPhone"  scope="prototype"  parent="baseAction"/>
+	 <bean id="dateRuleActionPhone" class="cn.xaut.shop.phoneAction.DateRuleActionPhone"  scope="prototype"  parent="baseAction"/>
+	 <bean id="shopActionPhone" class="cn.xaut.shop.phoneAction.ShopActionPhone"  scope="prototype"  parent="baseAction"/>
+	 <bean id="shopStateActionPhone" class="cn.xaut.shop.phoneAction.ShopActionPhone"  scope="prototype"  parent="baseAction"/>
+	 <bean id="shopApplyActionPhone" class="cn.xaut.shop.phoneAction.ShopApplyActionPhone"  scope="prototype"  parent="baseAction"/>
+	 <bean id="disputeActionPhone" class="cn.xaut.shop.phoneAction.DisputeActionPhone"  scope="prototype"  parent="baseAction"/>
+	 <bean id="disputeFileActionPhone" class="cn.xaut.shop.phoneAction.DisputeFileActionPhone"  scope="prototype"  parent="baseAction"/>
+	 <bean id="goodsActionPhone" class="cn.xaut.shop.phoneAction.GoodsActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="goodsPictureActionPhone" class="cn.xaut.shop.phoneAction.GoodsPictureActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="goodsDetialActionPhone" class="cn.xaut.shop.phoneAction.GoodsDetialActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="goodsTypeActionPhone" class="cn.xaut.shop.phoneAction.GoodsTypeActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="goodsTypeItemActionPhone" class="cn.xaut.shop.phoneAction.GoodsTypeItemActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="viewProductActionPhone" class="cn.xaut.shop.phoneAction.ViewProductActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="viewProductActionPhoneTwo" class="cn.xaut.shop.phoneAction.ViewProductActionTwoPhone" parent="baseAction" scope="prototype" />
+	 <bean id="pageActionPhone" class="cn.xaut.shop.phoneAction.PageActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="favouriteActionPhone" class="cn.xaut.shop.phoneAction.FavouriteActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="favouriteShopActionPhone" class="cn.xaut.shop.phoneAction.FavouriteShopActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="prolongApplyActionPhone" class="cn.xaut.shop.phoneAction.ProlongApplyActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="returnGoodsActionPhone" class="cn.xaut.shop.phoneAction.ReturnGoodsActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="goodsEvaluationActionPhone" class="cn.xaut.shop.phoneAction.GoodsEvaluationActionPhone" parent="baseAction" scope="prototype" />	 
+	 <bean id="discountActionPhone" class="cn.xaut.shop.phoneAction.DiscountActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="dateItemActionPhone" class="cn.xaut.shop.phoneAction.DateItemActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="marginItemActionPhone" class="cn.xaut.shop.phoneAction.MarginItemActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="pointsItemActionPhone" class="cn.xaut.shop.phoneAction.PointsItemActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="deliverAddrActionPhone" class="cn.xaut.shop.phoneAction.DeliverAddrActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="superUserActionPhone" class="cn.xaut.shop.phoneAction.SuperUserActionPhone" scope="prototype"  parent="baseAction"/>
+	 <bean id="adminUserActionPhone" class="cn.xaut.shop.phoneAction.AdminUserActionPhone" scope="prototype"  parent="baseAction"/>
+	 <bean id="decorationShopActionPhone" class="cn.xaut.shop.phoneAction.DecorationShopActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="messageActionPhone" class="cn.xaut.shop.phoneAction.MessageActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="stageGoodsActionPhone" class="cn.xaut.shop.phoneAction.StageGoodsActionPhone" parent="baseAction" scope="prototype" />
+	 <bean id="stageOrderActionPhone" class="cn.xaut.shop.phoneAction.StageOrderActionPhone" parent="baseAction" scope="prototype" />
+</beans>
+

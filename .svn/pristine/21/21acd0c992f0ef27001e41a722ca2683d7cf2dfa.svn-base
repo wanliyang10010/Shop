@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="strutsPhonehx"   namespace="/" extends="json-default,struts-default">
+	
+		<action name="goodsTypeActionPhone_*" class="cn.xaut.shop.phoneAction.GoodsTypeActionPhone" method="{1}">
+			<result name="getShop" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="success" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			<result name="list" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			<result name="update" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 根据店铺id(shopId)查询GoodsType的List -->
+			<result name="itemList" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 根据gtypeId获得该条goodType -->
+			<result name="item" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+		</action>
+		
+		<!-- 商品类别属性 -->
+		<action name="goodsTypeItemActionPhone_*" class="cn.xaut.shop.phoneAction.GoodsTypeItemActionPhone" method="{1}">
+			<!-- 查询 -->
+			<result name="list" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<!-- 添加 -->
+			<result name="success" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 修改 -->
+			<result name="update" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			
+		</action>
+		
+		<!-- 店铺 -->
+		<action name="shopActionPhone_*" class="cn.xaut.shop.phoneAction.ShopActionPhone" method="{1}">
+			<!-- 保证金申请时查找记录 -->
+			<result name="myShopList" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			<result name="viewMarginRedirect" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			
+			<result name="viewMargin" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			
+			<!-- 
+			<result name="viewShop">/shopManage/viewShop.jsp</result>
+			<result name="submitMargin">/shopManage/submitMargin.jsp</result>
+			<result name="viewMargin">/shopManage/viewMargin.jsp</result>
+			<result name="list">/shop-list.jsp</result>
+			<result name="viewShopRedirect" type="redirect">/shopManage/viewShop.jsp</result>
+			<result name="viewMarginRedirect" type="redirect">/shopManage/viewMargin.jsp</result>
+			
+			
+			 -->
+		</action>
+		
+		<!-- 保证金规则 
+			其中getShopMargin，以迁往strutsMarginItemPhone.xml
+		-->
+		
+		
+		<!-- 保证金详情 -->
+		<!-- 查看保证金详情 -->
+		<!-- 已迁移至struts_shoppunish.xml
+		<action name="marginDetailActionPhone_*" class="cn.xaut.shop.phoneAction.MarginDetailActionPhone"  method="{1}">
+			
+			<result name="marginDetailForShop"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		 -->
+		 
+		 
+		<!-- 商品 -->
+		<action name="goodsActionPhone_*" class="cn.xaut.shop.phoneAction.GoodsActionPhone"   method="{1}">
+			<!-- 添加商品 -->
+			<result name="addGoods"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 商品管理的商品查询 -->
+			<result name="list"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 更新商品状态 -->
+			<result name="queryGoods"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 更新是否热卖 -->
+			<result name="listdh"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 更新商品  -->
+			<result name="json"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		<!-- 商品详情 -->
+		<action name="goodsDetialActionPhone_*" class="cn.xaut.shop.phoneAction.GoodsDetialActionPhone"  method="{1}">
+			<!-- 查看 -->
+			<result name="list"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 添加 -->
+			<result name="query"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 更新 -->
+			<result name="update"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 删除 -->
+			<result name="delete"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		<!-- 店铺申请 -->
+		<action name="shopApplyActionPhone_*" class="cn.xaut.shop.phoneAction.ShopApplyActionPhone"  method="{1}">
+			<!-- 查询未审核的店铺 -->
+			<result name="checkShop"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 审核店铺通过 -->
+			<result name="checkShopApplyPass"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 审核店铺未通过 -->
+			<result name="checkShopApplyNotPass"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 查看店铺进展 -->
+			<result name="viewShopProgress"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 管理员查看店铺进展 -->
+			<result name="adminViewShopProgress"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 修改时查看 -->
+			<result name="alterShop"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			<!-- 得到商品类别 -->
+			<result name="applyShop"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		<!-- 上传文件 -->
+		<action name="uploadifyAction_*" class="cn.xaut.shop.phoneAction.UploadifyAction"   method="{1}">
+			<result name="success"  type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+	</package>
+	
+	
+</struts>    

@@ -1,0 +1,8 @@
+ .ui-dialog-header{
+  		background-color:   #428bca;
+  		color:black;
+  	} 
+.ui-dialog{
+	margin-top: 20%;
+	/*margin-bottom: auto;*/
+}

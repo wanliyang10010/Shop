@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- 
+		例子：
+		action这样配：
+		<resource>
+			<type>action</type>
+			<resourceString>/test01.action</resourceString>
+		</resource>
+		
+		url这样配：
+		<resource>
+			<type>url</type>
+			<resourceString>/www.baidu.com</resourceString>
+		</resource>
+		
+	 -->
+	 
+	 <!-- B:hx -->
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToAddResource.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToAddAuthority.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToAddRole.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToRegister.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToAuthorityMapResource.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToRoleMapAuthority.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToUserMapRole.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToHomePage.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToIndexAdmin.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToSearchRole.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToSearchDeleteAuthority.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToSearchDeleteResource.action</resourceString>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/jumpToSearchDeleteUser.action</resourceString>
+	</resource>
+	<!-- D:hx -->
+	
+
+	<!--   分割线  -->
+	<!--  客服管理 -->
+	<!--  分割线  -->
+
+	<!-- disputecheck.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/disputeAction_searchDate.action</resourceString>
+		<description>客服人员按日期查询会员申诉</description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/disputeAction_search.action</resourceString>
+		<description>客服人员按关键字查询会员申诉</description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/disputeFileAction_listfile.action</resourceString>
+		<description>客服人员查看会员申诉详情</description>
+	</resource>
+
+	<!-- -->
+
+	<!-- disputefile.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/orderSonAction_viewOrder.action</resourceString>
+		<description>客服人员查看申诉中订单</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/disputeAction_check.action</resourceString>
+		<description>客服人员处理会员申诉</description>
+	</resource>
+
+	<!-- goodsfilemanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/goodsPictureAction_updateGoodsAdmin.action</resourceString>
+		<description>客服人员修改商品封面图片</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/goodsPictureAction_updatePictureAdmin.action</resourceString>
+		<description>客服人员修改商品预览图片</description>
+	</resource>
+	<resource>
+		<type>action</type>
+			<resourceString>/goodsPictureAction_deleteAdmin.action</resourceString>
+			<description>客服人员删除商品图片</description>
+	</resource>
+
+	
+	<!-- login.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_loginAdmin.do</resourceString>
+		<description>客服人员登录</description>
+	</resource>
+
+	<!-- marginpunish.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/marginDetailAction_submargin.action</resourceString>
+		<description>客服人员处罚店铺</description>
+	</resource>
+
+    <!-- message.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/messageAction_OpenMessageAdmin.action</resourceString>
+		<description>客服人员查看消息提醒</description>
+	</resource>
+	
+	<!-- passwordchange.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_updatePWDBack.do</resourceString>
+		<description>客服人员修改密码</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_checkPWDBack.action</resourceString>
+		<description>客服人员验证密码</description>
+	</resource>
+
+	
+	<!-- reserusermessage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_updateRBack.action</resourceString>
+		<description>客服人员修改个人资料</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_MessageRBack.action</resourceString>
+		<description>客服人员查看个人资料</description>
+	</resource>
+
+
+	<!-- shopgoodsmanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_updateG.action</resourceString>
+		<description>客服人员修改店铺商品状态</description>
+	</resource>
+	<resource>
+		<type>action</type>
+			<resourceString>/goodsPictureAction_listfileAdmin.action</resourceString>
+			<description>客服人员查看店铺商品附件信息</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_listG.action</resourceString>
+		<description>客服人员查询店铺商品</description>
+	</resource>
+
+	<!-- shopstatemanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_deleteShop.action</resourceString>
+		<description>客服人员删除店铺</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_sdetial.action</resourceString>
+		<description>客服人员查看店铺商品</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_updateStateShop.action</resourceString>
+		<description>客服人员更新店铺状态</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginDetailAction_marginsub.action</resourceString>
+		<description>客服人员进入店铺处罚</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginDetailAction_viewDeital.action</resourceString>
+		<description>客服人员查看店铺保证金详情</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_listShop.action</resourceString>
+		<description>客服人员查询店铺</description>
+	</resource>
+
+	
+	<!-- userstatemanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/userinfoAction_delete.action</resourceString>
+		<description>客服人员删除会员</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/userinfoAction_updateState.action</resourceString>
+		<description>客服人员更新会员状态</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/userinfoAction_list.action</resourceString>
+		<description>客服人员查询会员</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/userinfoAction_queryUser.action</resourceString>
+		<description>客服人员查询会员</description>
+	</resource>
+	
+	<!-- topgoodsmanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_setTopGoods.action</resourceString>
+		<description>客服人员设置首页图片</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_getGoods.action</resourceString>
+		<description>客服人员查询首页图片</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_getTopGoods.action</resourceString>
+		<description>客服人员查询首页图片</description>
+	</resource>
+	
+	<!-- AdminUser.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_updateUser.action</resourceString>
+		<description>客服人员修改会员资料</description>
+	</resource>
+
+
+	<!-- stagegoodsmanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/stageGoodsAction_save.action</resourceString>
+		<description>客服人员添加积分商城商品</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/stageGoodsAction_getlist.action</resourceString>
+		<description>客服人员查询积分商城商品</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/stageGoodsAction_updateState.action</resourceString>
+		<description>客服人员更新积分商城商品状态</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/stageGoodsAction_update.action</resourceString>
+		<description>客服人员修改积分商城商品信息</description>
+	</resource>
+
+	<!-- stageordermanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/stageOrderAction_searchAdmin.action</resourceString>
+		<description>客服人员查询积分商城订单</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/stageOrderAction_trans.action</resourceString>
+		<description>客服人员更新积分商城订单物流信息</description>
+	</resource>
+
+	<!-- adminviewshopprogress.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/shopApplyAction_adminViewShopProgress.action</resourceString>
+		<description>客服人员查看店铺申请状态</description>
+	</resource>
+
+	<!-- checkshop.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/shopApplyAction_searchAllCheckList.action</resourceString>
+		<description>客服人员查询店铺申请</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopApplyAction_updateAndSave.action</resourceString>
+		<description>客服人员审核通过店铺申请</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopApplyAction_notpassupdate.action</resourceString>
+		<description>客服人员审核不通过店铺申请</description>
+	</resource>
+	
+	
+	<!-- URL -->
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/index.jsp</resourceString>
+		<description>客服平台主页</description>
+	</resource>
+
+	<!--  分割线 -->
+	<!-- 超级管理员 -->
+	<!--  分割线 -->
+
+
+	<!-- adminmanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_delete.action</resourceString>
+		<description>管理员删除客服人员账户</description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_updateState.action</resourceString>
+		<description>管理员更新客服人员账户状态</description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_update.action</resourceString>
+		<description>管理员更新客服人员信息</description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_list.action</resourceString>
+		<description>管理员查询客服人员账户</description>
+	</resource>
+
+	<!-- dateitem.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/dateItemAction_delete.action</resourceString>
+		<description>管理员删除日期项</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateItemAction_add.action</resourceString>
+		<description>管理员添加日期项</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateItemAction_update.action</resourceString>
+		<description>管理员更新日期项</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateItemAction_list.action</resourceString>
+		<description>管理员查询日期项</description>
+	</resource>
+
+	<!-- daterule.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/dateRuleAction_delete.action</resourceString>
+		<description>管理员删除日期规则</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateRuleAction_add.action</resourceString>
+		<description>管理员添加日期规则</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateRuleAction_update.action</resourceString>
+		<description>管理员更新日期规则</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateRuleAction_list.action</resourceString>
+		<description>管理员查询日期规则</description>
+	</resource>
+
+	<!-- login.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_loginBack.action</resourceString>
+		<description>管理员登录</description>
+	</resource>
+
+	<!-- marginitem.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/marginItemAction_delete.action</resourceString>
+		<description>管理员删除商品类别项</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginItemAction_add.action</resourceString>
+		<description>管理员添加商品类别项</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginItemAction_update.action</resourceString>
+		<description>管理员更新商品类别项</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginItemAction_list.action</resourceString>
+		<description>管理员查询商品类别项</description>
+	</resource>
+
+	<!-- marginrule.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/marginRuleAction_delete.action</resourceString>
+		<description>管理员删除保证金规则</description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/marginRuleAction_add.action</resourceString>
+		<description>管理员添加保证金规则</description>
+	</resource>
+  
+	<resource>
+		<type>action</type>
+		<resourceString>/marginRuleAction_update.action</resourceString>
+		<description>管理员更新保证金规则</description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/marginRuleAction_list.action</resourceString>
+		<description>管理员查询保证金规则</description>
+	</resource>
+
+	<!-- passwordchange.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_checkPWDBack.action</resourceString>
+		<description>验证管理员密码</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_updatePWDBack.action</resourceString>
+		<description>管理员密码修改</description>
+	</resource>
+
+	<!-- pointsitem.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsItemAction_delete.action</resourceString>
+		<description>管理员删除积分项</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsItemAction_add.action</resourceString>
+		<description>管理员添加积分项</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsItemAction_update.action</resourceString>
+		<description>管理员更新积分项</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsItemAction_list.action</resourceString>
+		<description>管理员查询积分项</description>
+	</resource>
+
+	<!-- pointsrule.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsRuleAction_delete.action</resourceString>
+		<description>管理员删除积分规则</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsRuleAction_add.action</resourceString>
+		<description>管理员添加积分规则</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsRuleAction_update.actionn</resourceString>
+		<description>管理员更新积分规则</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsRuleAction_list.action</resourceString>
+		<description>管理员查询积分规则</description>
+	</resource>
+
+	<!-- resetusermessage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_updateRBack.action</resourceString>
+		<description>管理员更新个人资料</description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_MessageRBack.action</resourceString>
+		<description>管理员查询个人资料</description>
+	</resource>
+	
+	<!-- URL -->
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/DisputeCheck.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/DisputeFile.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/DisputeView.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/GoodsFileManage.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/MarginDetial.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/MarginPunish.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/Message.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/OrderView.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/ResetUserMessage.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/ShopGoodsMange.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/ShopStateManage.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/StageGoodsManage.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/StageOrderManage.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/TopGoodsManage.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/UserStateManage.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/ViewMessage.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/adminViewShopProgress.jsp.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/checkShop.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/index.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/AdminManage.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/DateItem.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/DateRule.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/MarginItem.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/MarginRule.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/PointsItem.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/PointsRule.jsp</resourceString>
+		<description>后台主页</description>
+	</resource>
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/ResetUserMessage.jsp</resourceString>
+		<description>后台修改密码</description>
+	</resource>	
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/ViewMessage.jsp</resourceString>
+		<description>后台修改密码</description>
+	</resource>
+	
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/PasswordChange.jsp</resourceString>
+		<description>后台修改密码</description>
+	</resource>	
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/dateItemAction_qury.action</resourceString>
+		<description>日期项查询</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_queryAdmin.action</resourceString>
+		<description>客服账户查询</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_delete.action</resourceString>
+		<description>客服账户删除</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_add.action</resourceString>
+		<description>客服账户添加</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_updateState.action</resourceString>
+		<description>客服账户更新状态</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_update.action</resourceString>
+		<description>客服账户更新</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_listAdmin.action</resourceString>
+		<description>客服账户查询</description>
+	</resource>
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/messageAction_getMessageCount.action</resourceString>
+		<description>会员账户查询</description>
+	</resource>
+	
+</resources>

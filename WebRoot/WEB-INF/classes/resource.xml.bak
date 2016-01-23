@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- 
+		例子：
+		action这样配：
+		<resource>
+			<type>action</type>
+			<resourceString>/test01.action</resourceString>
+		</resource>
+		
+		url这样配：
+		<resource>
+			<type>url</type>
+			<resourceString>/www.baidu.com</resourceString>
+		</resource>
+		
+	 -->
+
+	<!--   分割线  -->
+	<!--  客服管理 -->
+	<!--  分割线  -->
+
+	<!-- disputecheck.jsp -->
+	
+	<resource>
+		<type>action</type>
+		<resourceString>/disputeAction_searchDate.action</resourceString>
+		<description>填写一下描述信息</description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/disputeAction_search.action</resourceString>
+		<description></description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/disputeFileAction_listfile.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- -->
+
+	<!-- disputefile.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/orderSonAction_viewOrder.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/disputeAction_check.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- goodsfilemanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/goodsPictureAction_updateGoodsAdmin.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/goodsPictureAction_updatePictureAdmin.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+			<resourceString>/goodsPictureAction_deleteAdmin.action</resourceString>
+			<description></description>
+	</resource>
+
+	
+	<!-- login.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_loginAdmin.do</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- marginpunish.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/marginDetailAction_submargin.action</resourceString>
+		<description></description>
+	</resource>
+
+    <!-- message.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/messageAction_OpenMessageAdmin.action</resourceString>
+		<description></description>
+	</resource>
+	
+	<!-- passwordchange.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_updatePWDBack.do</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_checkPWDBack.action</resourceString>
+		<description></description>
+	</resource>
+
+	
+	<!-- reserusermessage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_updateRBack.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_MessageRBack.action</resourceString>
+		<description></description>
+	</resource>
+
+
+	<!-- shopgoodsmanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_updateG.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+			<resourceString>/goodsPictureAction_listfileAdmin.action</resourceString>
+			<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_listG.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- shopstatemanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_deleteShop.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_sdetial.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_updateStateShop.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginDetailAction_marginsub.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginDetailAction_viewDeital.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopStateAction_listShop.action</resourceString>
+		<description></description>
+	</resource>
+
+	
+	<!-- userstatemanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/userinfoAction_delete.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/userinfoAction_updateState.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/userinfoAction_list.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/adminUserAction_updateUser.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- stagegoodsmanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/stageGoodsAction_save.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/stageGoodsAction_getlist.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/stageGoodsAction_updateState.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/stageGoodsAction_update.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- stageordermanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/stageOrderAction_searchAdmin.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/stageOrderAction_trans.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- adminviewshopprogress.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/shopApplyAction_adminViewShopProgress.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- checkshop.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/shopApplyAction_searchAllCheckList.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopApplyAction_updateAndSave.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/shopApplyAction_notpassupdate.action</resourceString>
+		<description></description>
+	</resource>
+	
+	
+	<!-- URL -->
+	<resource>
+		<type>url</type>
+		<resourceString>/AdminStage/index.jsp</resourceString>
+		<description></description>
+	</resource>
+
+	<!--  分割线 -->
+	<!-- 超级管理员 -->
+	<!--  分割线 -->
+
+
+	<!-- adminmanage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_delete.action</resourceString>
+		<description></description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_updateState.action</resourceString>
+		<description></description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_update.action</resourceString>
+		<description></description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_list.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- dateitem.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/dateItemAction_delete.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateItemAction_add.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateItemAction_update.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateItemAction_list.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- daterule.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/dateRuleAction_delete.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateRuleAction_add.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateRuleAction_update.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/dateRuleAction_list.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- login.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_loginBack.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- marginitem.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/marginItemAction_delete.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginItemAction_add.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginItemAction_update.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/marginItemAction_list.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- marginrule.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/marginRuleAction_delete.action</resourceString>
+		<description></description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/marginRuleAction_add.action</resourceString>
+		<description></description>
+	</resource>
+  
+	<resource>
+		<type>action</type>
+		<resourceString>/marginRuleAction_update.action</resourceString>
+		<description></description>
+	</resource>
+
+	<resource>
+		<type>action</type>
+		<resourceString>/marginRuleAction_list.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- passwordchange.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_checkPWDBack.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_updatePWDBack.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- pointsitem.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsItemAction_delete.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsItemAction_add.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsItemAction_update.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsItemAction_list.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- pointsrule.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsRuleAction_delete.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsRuleAction_add.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsRuleAction_update.actionn</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/pointsRuleAction_list.action</resourceString>
+		<description></description>
+	</resource>
+
+	<!-- resetusermessage.jsp -->
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_updateRBack.action</resourceString>
+		<description></description>
+	</resource>
+	<resource>
+		<type>action</type>
+		<resourceString>/superUserAction_MessageRBack.action</resourceString>
+		<description></description>
+	</resource>
+	
+	<!-- URL -->
+	<resource>
+		<type>url</type>
+		<resourceString>/backstage/index.jsp</resourceString>
+		<description></description>
+	</resource>
+
+</resources>

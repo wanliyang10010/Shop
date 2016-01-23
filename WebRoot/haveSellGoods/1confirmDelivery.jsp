@@ -1,0 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglibs.jspf"%>
+
+<!doctype html>
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>填写发货的物流信息</title>
+
+<%@ include file="/common/top-head.jspf" %>
+<script type="text/javascript" src="${ctx}/js/web.js"></script>
+ <link rel="stylesheet" type="text/css"  href="${ctx}/css/noneBorder.css"> 
+<script type="text/javascript"	src="${ctx}/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="${ctx}/js/haveSellGoods/confirmDelivery.js"></script>
+</head>
+<body>
+<div align="center" style="margin-top:-40px;">
+<%@ include file="/common/top-nav.jspf" %>
+</div>
+<div id="templatemo_main">
+	<center>
+		<form name="userform" action="" id="userform">
+			 &nbsp; &nbsp;&nbsp;<h3>填写发货的物流信息</h3>
+			 <input type="hidden" id="authorizedToken" name="authorizedToken" value="${userid}"/>
+		<s:if test="#request.orderid!=''">
+		     <table width="800px" align="center">
+					<tr style="background:#BFDBEB">
+						<td align="center" width=10%>订单号</td>
+						<td align="center" width=15%>购买人</td>
+						<td align="center" width=20%>购买时间</td>
+						<td align="center" width=20%>店铺名称</td>
+						<td align="center" width=15%>订单金额（元）</td>												
+						<td align="center" width=20%>备注</td>					
+					</tr>
+					<tr>
+						<td align="center">${param.orderid}</td>
+						<td align="center">${param.username}</td>
+						<td align="center">${param.buytime.substring(0,19)}</td>
+						<td align="center">${param.shopname}</td>
+						<td align="center">${param.ftotal}</td>
+						<td align="center">${param.remark}</td>
+					</tr>
+					<tr>
+					<td align="right" colspan="2"><span style="color:#FF0000">*</span><label for="textfield">物流公司：</label>
+					</td>
+					<td align="left" colspan="4"><input type="text" name="transcompany" id="transcompany"
+						 size="60" maxlength="30">
+					</td>
+				</tr>
+				<tr>
+					<td align="right" colspan="2"><span style="color:#FF0000">*</span><label for="textfield">物流单号：</label>
+					</td>
+					<td align="left" colspan="4"><input type="text" name="transnumber" id="transnumber"
+					onkeyup="var myreg=/^[A-Za-z0-9]+$/;if(!myreg.test(this.value)){this.value=''; }; "
+					oninput="var myreg=/^[A-Za-z0-9]+$/;if(!myreg.test(this.value)){this.value=''; }; " size="60" maxlength="30" >
+					</td>
+				</tr>
+				<tr style="display:none">
+					<td  colspan="6"><input type="number" name="orderid" id="orderid" value="${param.orderid}"></td>
+				</tr>
+				<tr>
+					<td colspan="6" align="center">
+						<button id="btn_submit" type="button" style="width:80px;" onclick="ok();">确定</button>
+						&nbsp; &nbsp;&nbsp;
+						<button id="btn_cancel" type="reset" style="width:80px;"
+							onclick="cancel()">取消</button>
+					</td>
+				</tr>
+				
+				<tr>
+					<td colspan="6" align="center"  height="80px">
+						<a href="${ctx}/p2pExpress/makeExpress.jsp" target="_blank" style="font-size:14px;">将快递信息发布到人人递</a>
+						</br></br>
+						<span style="color:red;font-size:14px">（您可以先将需要发货的快递信息发布到人人递，如果同学们顺路，则可以快速、方便的将货物送给买家）</span>
+					</td>
+				</tr>	
+			</table>
+			</s:if>						
+		</form>
+	</center>
+</div></body>
+</html>

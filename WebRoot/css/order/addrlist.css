@@ -1,0 +1,55 @@
+
+/* --------------------选择地址列表---------------------------------*/
+
+
+/*嵌套的div 地址列表*/
+.divAddr{
+		margin: 18px 1px 20px 0px;
+		border: 1px solid;
+	}
+	
+	
+.address {
+	width:840px;
+	margin:0 auto;
+	/*overflow: hidden;*/
+	
+}
+
+.manage-address {
+	float: right;
+	font-size: 12px;
+	font-weight: normal;
+}
+	
+
+
+.address h3 {
+	font-size: 14px;
+	font-weight:700;
+	border-bottom: 2px solid #f1f1f1;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+
+.tbl-addr{
+	width:100%;
+	background-color: #E7E7E7;
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+.tbl-addr  tbody tr{
+	
+}
+
+.orderdiv{
+	
+}
+
+.orderdiv h3 {
+	border-bottom: 2px solid #f1f1f1;
+	margin-bottom: 20px;
+	text-align: left;
+}

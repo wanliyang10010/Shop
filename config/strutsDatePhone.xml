@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- extends="/" -->
+	<package name="strutsDatePhone"   namespace="/" extends="json-default,struts-default">
+		<action name="dateItemActionPhone_*" class="cn.xaut.shop.phoneAction.DateItemActionPhone" method="{1}">
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result  name="ListDateItem"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<result  name="DateItemList"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+		</action>
+		
+		<action name="dateRuleActionPhone_*" class="cn.xaut.shop.phoneAction.DateRuleActionPhone" method="{1}">
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result  name="ListDateRule"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<result  name="DateRuleList"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+		</action>
+		<action name="disputeFileActionPhone_*" class="cn.xaut.shop.phoneAction.DisputeFileActionPhone" method="{1}">
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result  name="DisputeFileList"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+		</action>	
+		<action name="disputeActionPhone_*" class="cn.xaut.shop.phoneAction.DisputeActionPhone" method="{1}">
+			<!-- 后台查看申诉 -->
+			<result  name="ListDispute"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<!-- 前台提交申诉 -->
+    		<result name="addDisputeInfoPhone"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<!-- 前台查看申诉 -->
+			<result name="viewdisputePhone"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+<!-- 			<result name="addDisputeInfoPhone"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			 -->
+		</action>	
+			
+	</package>
+	
+</struts>    

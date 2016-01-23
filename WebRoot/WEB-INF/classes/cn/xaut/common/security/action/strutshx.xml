@@ -1,0 +1,190 @@
+﻿<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- struts2的核心配置文件，在应用部署时加载并解析 -->
+	<!-- 相关的Action类，放置在同一个包下， struts2以包来区分不同的Action
+		name:表示报名，包名不能重复，
+		extends:表示程序员定义的包，只继承struts2框架内的内置包
+		程序员定义的类，就可以采用struts2框架中内置的常用功能struts-default 
+	-->
+	<!-- 当页面名字想通的情况下，可以通过namespace来区分访问路径  如：  /user/login -->
+			
+			<!--  name="defaulthx" -->	
+	<package name="defaulthx"  extends="public">
+	
+  		<!-- 添加资源 -->
+  		<action name="jumpToAddResource" class="returnResourceString" method="execute">
+    		<result>/WEB-INF/Jsp/security/resource/addResource.jsp</result>
+    	</action>
+    	
+    	
+    	<!-- 添加权限 -->
+    	<action name="jumpToAddAuthority">
+    		<result>/WEB-INF/Jsp/security/authority/addAuthority.jsp</result>
+    	</action>
+    	
+    	<!-- 添加角色 -->
+    	<action name="jumpToAddRole">
+    		<result>/WEB-INF/Jsp/security/role/addRole.jsp</result>
+    	</action>
+    	<!-- 添加用户 -->
+    	<action name="jumpToRegister">
+    		<result>/WEB-INF/Jsp/security/user/register.jsp</result>
+    	</action>
+    	<!-- 配权限对应的资源 -->
+    	<action name="jumpToAuthorityMapResource" class="returnAuthorityNameAction" method="returnAuthorityName">
+    		<result>/WEB-INF/Jsp/security/authority/authorityMapResource.jsp</result>
+    	</action>
+    	<!-- peijueseduiyingdequanxian 配置角色对应的权限 -->
+    	<action name="jumpToRoleMapAuthority" class="returnRoleAndAuthorityAction" method="returnRoleAndAuthorities">
+    		<result>/WEB-INF/Jsp/security/role/roleMapAuthority.jsp</result>
+    	</action>
+    	<!-- peizhiyonghuduiyingdejuese 配置用户对应的角色-->
+    	<action name="jumpToUserMapRole" class="returnUserAndRoleAction" method="returnUserAndRoles">
+    		<result>/WEB-INF/Jsp/security/user/userMapRole.jsp</result>
+    	</action>
+    
+    	<!-- tiaozhuanzhizhuyeAdmin 跳转至主页Admin -->
+    	<action name="jumpToIndexAdmin">
+    		<result>/WEB-INF/Jsp/end_home/index.jsp</result>
+    	</action>
+    	
+    	<action name="loginAdminFailure">
+    		<result>/WEB-INF/Jsp/end_home/loginmy.jsp</result>
+    	</action>
+    	
+    	<!-- juesechaxun 角色查询 -->
+    	<action name="jumpToSearchRole">
+    		<result>/WEB-INF/Jsp/security/role/searchRole.jsp</result>
+    	</action>
+    	<!-- quanxianchaxunshanchuxiugai 权限查询删除修改 -->
+    	<action name="jumpToSearchDeleteAuthority">
+    		<result>/WEB-INF/Jsp/security/authority/searchDeleteAuthority.jsp</result>
+    	</action>
+    	<!--  ziyuanchaxunshanchuxiugai  资源查询删除修改-->
+    	<action name="jumpToSearchDeleteResource">
+    		<result>/WEB-INF/Jsp/security/resource/searchDeleteResource.jsp</result>
+    	</action>
+    	<!-- yonghuchaxunshanchu 用户查询删除修改-->
+    	<action name="jumpToSearchDeleteUser">
+    		<result>/WEB-INF/Jsp/security/user/searchDeleteUser.jsp</result>
+    	</action>
+    	
+    	<action name="loginAdmin">
+    	 	<result>/WEB-INF/Jsp/end_home/loginmy.jsp</result>
+    	 </action>
+    </package>
+	
+				
+				
+	<package name="security" namespace="/" extends="json-default,struts-default">
+    	
+    	<!-- 配置拦截器 -->
+    	<interceptors>
+    		<!-- 默认的defaultStack没有token拦截器 -->
+    		<interceptor-stack name="tokenStack">
+    			<interceptor-ref name="token"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    		
+    		<!-- 默认的defaultStack没有tokenSession拦截器 -->
+    		<interceptor-stack name="tokenSessionStack">
+    			<interceptor-ref name="tokenSession"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+    
+    
+    	<action name="resourceAction_*" class="resourceAction" method="{1}">
+    		<result name="createOK">/WEB-INF/Jsp/security/resource/create.jsp</result>
+    		<result  name="success"  type="json">
+    			<param name="includeProperties">
+    				responseJson\.isExsited
+    			</param>
+    		</result>
+    		<result name="resourceStringOK">/WEB-INF/Jsp/security/resource/addResource.jsp</result>
+    	</action>
+    	
+    	<action name="authorityAction_*" class="authorityAction" method="{1}">
+    		<result name="createOK">/WEB-INF/Jsp/security/authority/create.jsp</result>
+    		<result  name="success"  type="json">
+    			<param name="includeProperties">
+    				responseJson\.isExsited
+    			</param>
+    		</result>
+    	</action>
+    	
+    	<action name="roleAction_*" class="roleAction" method="{1}">
+    		<result name="createOK">/WEB-INF/Jsp/security/role/create.jsp</result>
+    		<result  name="success"  type="json">
+    			<param name="includeProperties">
+    				responseJson\.isExsited
+    			</param>
+    		</result>
+    	</action>
+    	
+    	<action name="userAction_*" class="userAction" method="{1}">
+    		<param name="savePath">/upload</param>	
+    		<result name="createOK">/WEB-INF/Jsp/security/user/create.jsp</result>
+    		<result name="failure">/WEB-INF/Jsp/security/user/register.jsp</result>
+    		<result name="success" type="json">
+    			<param name="includeProperties">
+    				responseJson\.isExsited
+    			</param>
+    			<!-- 
+    			<param name="root">
+    				responseJson
+    			</param>
+    			 -->
+    		</result>
+    	</action>
+    	<action name="authorityMapResource_*" class="authorityMapResource" method="{1}">
+    		<result name="leftList"> /WEB-INF/Jsp/security/authority/authorityMapResource.jsp </result>
+    		<result name="success">/WEB-INF/Jsp/security/authority/mapOK.jsp</result>
+    	</action>
+    	<action name="roleMapAuthority_*" class="roleMapAuthority" method="{1}">
+    		<result name="leftList">/WEB-INF/Jsp/security/role/roleMapAuthority.jsp</result>
+    		<result>/WEB-INF/Jsp/security/role/mapOK.jsp</result>
+    	</action>
+    	<action name="userMapRole_*" class="userMapRole" method="{1}">
+    		<result name="leftList">/WEB-INF/Jsp/security/user/userMapRole.jsp</result>
+    		<result>/WEB-INF/Jsp/security/user/mapOK.jsp</result>
+    	</action>
+    	<action name="endloginAction" class="myLoginAction">
+    		<result>/WEB-INF/Jsp/end_home/index.jsp</result>
+    	</action>
+    	<action name="searchRoleAction_*" class="searchRoleAction" method="{1}">
+    		<result name="list">/WEB-INF/Jsp/security/role/searchRole.jsp</result>
+    		<result name="alter">/WEB-INF/Jsp/security/role/alterRole.jsp</result>
+    	</action>
+    	<action name="searchDeleteAuthorityAction_*" class="searchDeleteAuthorityAction" method="{1}">
+    		<result name="list">/WEB-INF/Jsp/security/authority/searchDeleteAuthority.jsp</result>
+    		<result name="alter">/WEB-INF/Jsp/security/authority/alterAuthority.jsp</result>
+    	</action>
+    	<action name="searchDeleteResourceAction_*" class="searchDeleteResourceAction" method="{1}">
+    		<result name="list">/WEB-INF/Jsp/security/resource/searchDeleteResource.jsp</result>
+    		<result name="alter">/WEB-INF/Jsp/security/resource/alterResource.jsp</result>
+    		<result name="resourceStringOK">/WEB-INF/Jsp/security/resource/alterResource.jsp</result>
+    	</action>
+    	<action name="searchDeleteUserAction_*" class="searchDeleteUserAction" method="{1}">
+    		<result name="list">/WEB-INF/Jsp/security/user/searchDeleteUser.jsp</result>
+    	</action>
+    	<action name="myLoginAction_*" class="myLoginAction"  method="{1}">
+    		<result name="failure">/WEB-INF/Jsp/end_home/loginmy.jsp</result>
+    		<result name="goIndexAdmin"  type="redirectAction">/jumpToIndexAdmin.action</result>
+    		<!-- 
+    		<result name="" type="redirectAction"></result>
+    		 -->
+    	</action>
+    </package>
+				
+
+	
+		
+				
+		
+		
+	
+
+</struts>

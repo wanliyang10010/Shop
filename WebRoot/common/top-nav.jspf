@@ -1,0 +1,253 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<div id="ie-check" style="display:none;">
+    <span>系统检测到您的浏览器版本太低，为预防购物风险，请使用IE8及以上版本的IE浏览器&nbsp;&nbsp;或者使用火狐/谷歌等浏览器。</span>
+    <span><a href="${ctx }/help/browserHelp.jsp" >还有有问题?</a></span>
+    <span class="close"><a href="javascript:void(0)" onclick="divclose()">关闭</a></span>
+  </div>
+<div id="templatemo_body_wrapper">
+  <div id="templatemo_wrapper">
+    <div id="templatemo_null">
+      <br/>
+    </div>
+    <div id="templatemo_header">
+      <div id="header_left">
+        <c:choose>
+          <c:when test="${sessionScope.userid>0}">
+            <p>
+              <a href="${ctx}/userinfoAction_viewmessage.action">Hi,${sessionScope.userinfo.username}</a> |
+              <a href="${ctx}/userPointAction_forwardUserPoint.action">积分(${sessionScope.userinfo.points})</a> |
+              <a href="${ctx}/stageGoodsAction_getGoods.action?keyword=">积分商城</a> |
+              <a href="${ctx}/messageAction_getMessage.action">新消息(${sessionScope.MessageCount})</a> |
+              <a href="${ctx}/userinfoAction_clear.do">退出</a>
+            </p>
+          </c:when>
+          <c:otherwise>
+            <p>
+              <a href="${ctx}/login.jsp">欢迎访问创业平台，请登录</a> |
+              <a href="${ctx}/user/NormalRegedit.jsp">注册</a>
+            </p>
+          </c:otherwise>
+        </c:choose>
+      </div>
+      <div id="header_right">
+        <c:if test="${sessionScope.shop.shopId>0}">${sessionScope.shop.shopname}|</c:if>
+        <a href="${ctx}/cartAction_queryCarts.action">购物车
+             <span id="top_item_count">${sessionScope.cartItemCount}</span>
+        </a> |
+        <a href="${ctx}/orderAction_haveBuyGoods.action">买进宝贝订单</a>|
+        <a href="${ctx}/order/favouriteShopAction_list.action">收藏的店铺</a> |
+        <a href="${ctx}/order/favouriteAction_list.action">收藏的商品</a>
+      </div>
+      <div class="cleaner"></div>
+    </div>
+    <!-- END of templatemo_header -->
+    <div id="templatemo_menubar">
+      <div class="ddsmoothmenu" id="top_nav">
+        <ul>
+          <li>
+            <a href="${ctx}/viewProductAction_MyShop.do">主页</a>
+          </li>
+          <li>
+            <a href="${ctx}/viewProductAction_queryGoods.do">商品</a>
+            <ul>
+              <li>
+                <a href="${ctx}/viewProductAction_productD.do">特价商品</a>
+              </li>
+              <li>
+                <a href="${ctx}/viewProductAction_productH.do">热卖商品</a>
+              </li>
+              <li>
+                <a href="${ctx}/viewProductAction_getShand.do">二手商品</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="${ctx}/viewProductAction_queryGoods.do">搜索</a>
+            <ul>
+              <li>
+                <a href="${ctx}/viewProductAction_queryGoods.do">商品搜索</a>
+              </li>
+              <li>
+                <a href="${ctx}/viewProductActionShopSearch_queryShop.do">店铺搜索</a>
+              </li>
+            </ul>
+          </li>
+          <c:if test="${sessionScope.userid>0}">
+            <li>
+              <a href="${ctx}/userinfoAction_viewmessage.action">个人中心</a>
+              <ul>
+                <li>
+                  <a href="${ctx}/userinfoAction_viewmessage.action">账户信息</a>
+                  <ul>
+                    <li>
+                      <a href="${ctx}/userinfoAction_MessageR.action?userinfoid=${sessionScope.userid}">个人信息修改</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/userinfoAction_viewmessage.action">个人信息查看</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/userinfoAction_PwdChange.action">修改密码</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="${ctx}/stageOrderAction_opensale.action">积分兑换</a>
+                  <ul>
+                    <li>
+                      <a href="${ctx}/stageGoodsAction_getGoods.action?keyword=">积分商城</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/stageOrderAction_opensale.action">兑换记录</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="${ctx}/order/deliverAddrAction!showMyAddr.action">收货地址</a>
+                </li>
+                <li>
+                  <a href="${ctx}/goodsEvaluationAction_searchPointEvaluation.action">积分评价管理</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="${ctx}/orderAction_haveBuyGoods.action">订单管理</a>
+              <ul>
+                <li>
+                  <a href="${ctx}/orderAction_haveBuyGoods.action">个人订单</a>
+                  <ul>
+                    <li>
+                      <a href="${ctx}/orderAction_haveBuyGoods.action">买进宝贝订单</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/prolongApplyAction_searchMyAlterList.action">修改延长收货时间</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/prolongApplyAction_searchMyViewList.action">查看延长收货时间</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/returnGoodsAction_searchMyAlterList.action">修改退货申请</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/returnGoodsAction_searchMyPassList.action">填写退货运单</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/returnGoodsAction_searchMyViewList.action">查看退货申请</a>
+                    </li>
+                  </ul>
+                </li>
+                <c:if test="${sessionScope.shop.shopId>0}">
+                  <li>
+                    <a href="${ctx}/orderAction_haveSellGoods.action">店铺订单</a>
+                    <ul>
+                      <li>
+                        <a href="${ctx}/orderAction_haveSellGoods.action">卖出宝贝订单</a>
+                      </li>
+                      <li>
+                        <a href="${ctx}/prolongApplyAction_searchMyCheckList.action">审核延长收货时间</a>
+                      </li>
+                      <li>
+                        <a href="${ctx}/prolongApplyAction_searchMyViewListSell.action">卖家查看延长收货时间</a>
+                      </li>
+                      <li>
+                        <a href="${ctx}/returnGoodsAction_searchMyCheckList.action">审核退货申请</a>
+                      </li>
+                      <li>
+                        <a href="${ctx}/returnGoodsAction_searchMyConfirmList.action">确认收到买家退货</a>
+                      </li>
+                      <li>
+                        <a href="${ctx}/returnGoodsAction_searchMyViewListSell.action">卖家查看退货申请</a>
+                      </li>
+                    </ul>
+                  </li>
+                </c:if>
+                 <li>
+                    <a href="${ctx}/expressAction_searchAlterList.action">管理人人递信息</a>
+                 </li>
+                 <li>
+                    <a href="${ctx}/expressAction_searchViewList.action">查看人人递信息</a>
+                 </li>
+              </ul>
+            </li>
+            <c:choose>
+              <c:when test="${sessionScope.shop.shopId>0}">
+                <li>
+                  <a href="${ctx}/viewProductAction_shop.do?shopid=${sessionScope.shop.shopId}">店铺管理</a>
+                  <ul>
+                    <li>
+                      <a href="${ctx}/goodsAction_query.action">店铺商品管理</a>
+                      <ul>
+                        <li>
+                          <a href="${ctx}/goodsTypeAction_getlist.action?shopId=${sessionScope.shop.shopId}">店铺二级类别</a>
+                        </li>
+                        <li>
+                          <a href="${ctx}/goodsTypeAction_getListByShop.action">添加商品</a>
+                        </li>
+                        <li>
+                          <a href="${ctx}/goodsAction_query.action">商品管理</a>
+                        </li>
+                        <li>
+                          <a href="${ctx}/help/GoodsInfoHelp.jsp">使用说明</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="${ctx}/shopAction_searchMyViewList.action">店铺信息管理</a>
+                      <ul>
+                        <li>
+                          <a href="${ctx}/shopApplyAction_searchMyShopAlterList.action">修改店铺信息</a>
+                        </li>
+                        <li>
+                          <a href="${ctx}/shopAction_searchMyViewList.action">店铺信息查看</a>
+                        </li>
+                        <li>
+                          <a href="${ctx}/shopAction_searchMyShopList.action">交保证金</a>
+                        </li>
+                        <li>
+                          <a href="${ctx}/marginDetailAction_queryByShopid.action">保证金查看</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <a href="${ctx}/orderAction_opensale.action">销售统计</a>
+                      <ul>
+                        <li>
+                          <a href="${ctx}/orderAction_opensale.action">订单销售统计</a>
+                        </li>
+                        <li>
+                          <a href="${ctx}/goodsAction_querySale.action">商品销售统计</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </c:when>
+              <c:otherwise>
+                <li>
+                  <a href="${ctx}/shopApplyAction_searchProductcategory.action">申请开店</a>
+                  <ul>
+                    <li>
+                      <a href="${ctx}/shopApplyAction_searchProductcategory.action">制定店铺申请</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/shopApplyAction_searchMyAlterList.action">修改店铺申请</a>
+                    </li>
+                    <li>
+                      <a href="${ctx}/shopApplyAction_searchMyViewList.action">查看店铺申请审核进展</a>
+                    </li>
+                  </ul>
+                </li>
+              </c:otherwise>
+            </c:choose>
+          </c:if>
+          <li>
+            <a href="${ctx}/help/help.jsp">帮助</a>
+          </li>
+        </ul>
+        <br style="clear: left" />
+      </div>
+
+    </div>
+    <!-- END of templatemo_wrapper -->
+  </div>
+  <!-- END of templatemo_body_wrapper -->
+  </form>

@@ -1,0 +1,80 @@
+@CHARSET "UTF-8"
+.grid-bundle {
+		width:900px;
+		margin-bottom: 50px;
+		table-layout: fixed;
+		text-align: center;
+		border-collapse: collapse;
+	}
+	.tube-title {
+		text-align: left;
+		/* width: 254px; */
+	}
+	.tube-price {
+		/* width: 110px; */
+	}
+	.tube-amount {
+		/* width: 105px; */
+	}
+	.tube-sum {
+		/* width: 110px; */
+	}
+	.row-border td {
+		background: #b2d1ff;
+		height: 3px;
+		border-right: 2px solid #fff;
+	}
+	tbody .tube-main, .grid-bundle tbody .tube-postage {
+		border-bottom: 1px solid #b4d0ff;
+		/* vertical-align:middle; */
+		
+	}
+	.tube-img {
+	 width: 90px; 
+	vertical-align: top;
+	}
+	.tube-master {
+		 width: 135px;
+		padding-right: 8px;
+		text-align: center;
+		vertical-align: center;
+	}
+	.tube-price {
+		 width: 90px; 
+		text-align: center;
+	}
+	.tube-amount {
+		 width: 90px; 
+		text-align: center;
+	}
+	.tube-sum {
+		 width: 90px; 
+		text-align: center;
+	}
+	.tube-dispute {
+		 width: 90px; 
+		text-align: center;
+	}
+
+	.memo {
+		/* position: relative;
+		float: left; */
+		color: #999;
+		/* margin-right: 10px; */
+	}
+	.tc-text {
+		margin-top:5px;
+	    border:0px;
+	     font-weight:bold;
+	     font-size: 12px;
+		width: 180px; 
+		height: 15px;
+		line-height: 15px;
+		resize: none;
+		color: #999;
+		/* overflow: auto; */
+	}
+	.orderPay {
+	padding: 3px 0;
+	color: #999;
+	}

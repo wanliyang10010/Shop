@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- extends="/" -->
+	<package name="strutsPhone"   namespace="/" extends="json-default,struts-default">
+		<!-- <action name="userinfoActionPhone_*" class="cn.xaut.shop.phoneAction.UserInfoActionPhone" method="{1}">			
+			<result name="success"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="failed" >/login.jsp</result>
+			
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			</action> -->
+		<action name="userinfoActionPhone_*" class="cn.xaut.shop.phoneAction.UserInfoActionPhone" method="{1}">			
+				<result  name="loginsuccess"  type="json">
+    			 <param name="root">
+    			 	jsonMap	
+    			 </param>
+    		</result>
+    		<result  name="failed"  type="json">
+    			 <param name="root">
+    			 	jsonMap	
+    			 </param>
+    		</result>
+    		<result name="ListDateItem" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="list" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="updateuser" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<!--  <result name="updateuser" type="redirectAction">userinfoActionPhone_viewmessage</result>-->
+    		<result name="viewmessage" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="MessageR" type="json" >
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+	<action name="adminuserActionPhone_*" class="cn.xaut.shop.phoneAction.AdminUserActionPhone" method="{1}">
+		<result name="json" type="json">
+				<param name="root">responseJson</param>
+	    </result>
+	</action>
+        <!-- =============================李建明积分管理开始================================== -->
+		<action name="pointsItemActionPhone_*" class="cn.xaut.shop.phoneAction.PointsItemActionPhone" method="{1}">
+			<result name="json" type="json">
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="ListPointsItem" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="PointsItemList" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		</action>	
+		<action name="pointsRuleActionPhone_*" class="cn.xaut.shop.phoneAction.PointsRuleActionPhone" method="{1}">		
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>				
+			</result>
+			<result name="ListPointsRule" type="json">
+			     <param name="root">responseJson</param>
+			</result>
+		</action>		
+        <!-- =============================李建明积分管理结束================================== -->
+		
+		
+		<!-- =============================周天翔店铺管理开始================================== -->
+		<action name="shopStateActionPhone_*" class="shopActionPhone" method="{1}">
+			<result name="listorder"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+		</action>	
+		<action name="goodsPictureActionPhone_*" class="goodsPictureActionPhone" method="{1}">
+			<result name="listorder"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		<!-- =============================周天翔店铺管理结束================================== -->
+
+		<!-- ========================王超======================== -->
+		<action name="stageOrderActionPhone_*" class="stageOrderActionPhone" method="{1}">
+			<result name="goLogin"  type="redirect">/login.jsp</result>
+			<result name="list"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		<action name="stageGoodsActionPhone_*" class="stageGoodsActionPhone" method="{1}">
+			<result name="goLogin"  type="redirect">/login.jsp</result>
+			<result name="list"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>	
+		<action name="favouriteActionPhone_*" class="favouriteActionPhone" method="{1}">
+			<result name="goLogin"  type="redirect">/login.jsp</result>
+			<result name="list"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			  <result  name="collectjson"  type="json">
+    			 <param name="root">jsonMap</param>
+    	   </result>
+		</action>
+		<action name="favouriteShopActionPhone_*" class="favouriteShopActionPhone" method="{1}">
+			<result name="goLogin"  type="redirect">/login.jsp</result>
+			<result name="list"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>	
+		<action name="cartActionPhone_*" class="cartActionPhone" method="{1}">
+			<result name="list"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>	
+		<action name="cartItemActionPhone_*" class="cartItemActionPhone" method="{1}">
+			<result name="list"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		<action name="discountActionPhone_*" class="discountActionPhone" method="{1}">
+			<result name="goLogin"  type="redirect">/login.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="list"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			<result name="jsonsuccess"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		<!-- =============================王超结束================================== -->
+		
+	</package>
+</struts>    

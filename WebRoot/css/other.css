@@ -1,0 +1,26 @@
+@CHARSET "UTF-8"
+body
+{
+text-align:center;
+}
+
+#front
+{
+position:relative;
+width:970px;
+text-align:center;
+vertical-align:middle;
+height:350px;
+}
+
+#shopcar
+{
+	position:relative;
+	width:750px;
+	height:360px;
+	border:8px solid #C6ECFB;
+	top:30px;
+}
+
+
+

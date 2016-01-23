@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- extends="/" -->
+	<package name="strutsPhonefc"   namespace="/" extends="json-default,struts-default">
+		
+		<action name="orderactionPhone_*" class="orderActionPhone" method="{1}">
+			 
+			<result name="buyNow"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="haveBuyGoods"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="haveSellGoods"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>	
+			
+			<result name="getOrder"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="saveOrders"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>		
+					
+			<result name="saveOrder"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="listorder"  type="json" >
+				<param name="root">responseJson</param>
+			</result>
+			
+			<result name="payNow"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="cancelOrderURL"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="haveSellAction"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="confirmGoodsURL"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>	
+			
+			<result name="sellDelayPurchasesTime"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+							
+		</action>
+		
+		<action name="prolongApplyActionPhone_*" class="prolongApplyActionPhone" method="{1}">
+		    
+		    <result name="error" type="redirect">/Error.jsp</result>
+		    
+		    <result name="listProlongApply"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		    
+			<result name="checkProlongApply"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="checkProlongApplyRedirect"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="alterProlongApply"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="UpdataAlterProlongApply"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			 <result name="deleteAlterProlong"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="viewProlongApply"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+		</action>
+		
+		<!-- 2015-10-29修改此处配置文件(修改人fc) -->
+		<!-- 原来的name="returnGoodsAction_*"修改为name="returnGoodsActionPhone_*" -->
+		
+		<action name="returnGoodsActionPhone_*" class="returnGoodsActionPhone" method="{1}">
+			 <!-- 提交退货申请 -->
+			<result name="savehavePurchaseOrderSonReturn"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<!-- 审核查询 -->
+			<result name="checkhavePurchaseOrderSonReturn"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<!-- 审核通过 -->
+			<result name="checkpassReturnGoodsRedirect"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<!-- 审核不通过 -->
+				<result name="checkdispassReturnGoodsRedirect"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<!-- 修改查询 -->
+			<result name="alterpassReturnGoodsRedirect"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<!-- 修改提交 -->
+			<result name="alertsReturnGoodsRedirect"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+            <!-- 修改删除 -->
+			<result name="alertdReturnGoodsRedirect"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<!-- 查看退货 -->
+			<result name="viewReturnGoodsRedirect"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		<action name="goodsEvaluationActionPhone_*" class="goodsEvaluationActionPhone" method="{1}">
+			 <result name="error" type="redirect">/Error.jsp</result>
+			 
+			<result name="save"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="viewUserPoint"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="viewShopPoint"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="postViewEvaluation"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="postViewEvaluationP"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="fromBuyComment"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="getUserpoint"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="getShoppoint"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="replyfrombuy"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="replyfromsell"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="fromOtherComment"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+			<result name="notpublic"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+
+			<result name="forwardUserShopPoint"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			
+		</action>	
+		
+	</package>
+	
+</struts>    

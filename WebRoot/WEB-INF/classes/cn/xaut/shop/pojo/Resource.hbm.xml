@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-6-19 11:18:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="cn.xaut.shop.pojo">
+    <class name="Resource" table="TB_RESOURCE">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+             <generator class="sequence">
+             	<param name="sequence">tb_resource_seq</param>
+             </generator>
+        </id>
+        <property name="resourceName" type="java.lang.String">
+            <column name="RESOURCE_NAME" />
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="TYPE" />
+        </property>
+        <property name="priority" type="java.lang.Integer">
+            <column name="PRIORITY" />
+        </property>
+        <property name="resourceString" type="java.lang.String">
+            <column name="RESOURCE_STRING" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="enabled" type="java.lang.Integer">
+            <column name="ENABLED" />
+        </property>
+        <property name="isSys" type="java.lang.Integer">
+            <column name="ISSYS" />
+        </property>
+        <set name="authorities" table="TB_AUTHORITY_RESOURCE" inverse="true" lazy="false">
+            <key>
+                <column name="RESOURCE_ID" />
+            </key>
+            <many-to-many class="Authority" column="AUTHORITY_ID"/>
+        </set>
+    </class>
+</hibernate-mapping>

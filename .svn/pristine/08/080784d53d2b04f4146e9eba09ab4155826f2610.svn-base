@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- extends="/" -->
+	<package name="marginItemActionPhone"   namespace="/" extends="json-default,struts-default">
+		<action name="marginItemActionPhone_*" class="marginItemActionPhone" method="{1}">
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="MarginItemList" type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+		<action name="marginRuleActionPhone_*" class="marginRuleActionPhone" method="{1}">
+			<!-- 查询 -->
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="MarginRule" type="json">
+				<param name="root">responseJson</param>
+			</result>
+			
+			
+		</action>
+		
+	</package>
+	
+</struts>

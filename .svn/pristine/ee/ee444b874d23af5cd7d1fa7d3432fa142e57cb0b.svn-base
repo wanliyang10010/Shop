@@ -1,0 +1,13 @@
+#ie-check {
+	position:relative;
+	height:30px;
+	line-height:30px;
+	margin: 39px  0 -39px; 
+	text-align: center;
+	background-color: #CCC;
+	
+}
+
+#ie-check span{
+	margin : 0 20px;
+}

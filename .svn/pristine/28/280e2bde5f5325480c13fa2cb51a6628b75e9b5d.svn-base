@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- extends="/" -->
+	<package name="strutsScanPhone"   namespace="/" extends="json-default,struts-default">
+		<action name="viewproductActionPhone_*" class="viewProductActionPhone" method="{1}">			
+			<result  name="attendViewActivity"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<result  name="product"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<result  name="ListGoods"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<!-- <result  name="attendlistShop"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result> -->
+    		<result  name="ListShop"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<result  name="shop"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<result  name="productBargainGoods"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<result  name="productBestSeller"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+    		<result  name="productDetialComment"  type="json">
+    			 <param name="root">responseJson</param>
+    		</result>
+		</action>
+		<action name="viewproductActionPhoneTwo_*" class="viewProductActionPhoneTwo" method="{1}">
+		   <result  name="attendlistShop"  type="json">
+    			 <param name="root">responseJson</param>
+    	   </result>
+		</action>
+		
+		<action name="cartitemActionPhone_*" class="cartItemActionPhone" method="{1}">
+		   <result  name="goLogin"  type="json">
+    			 <param name="root">responseJson</param>
+    	   </result>
+		   <result  name="cartjson"  type="json">
+    			 <param name="root">responseJson</param>
+    	   </result>
+		</action>
+	</package>
+	
+</struts>    

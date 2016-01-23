@@ -1,0 +1,32 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglibs.jspf"%>
+<s:if test="#request.list != null && ! #request.list.isEmpty()">
+<div class="divAddr">
+	
+   	<table class="tbl-addr">
+   		<thead>
+   			<tr>
+   				<td width="5%"></td>
+   				<td width="30%"></td>
+   				<td width="30%"></td>
+   				<td width="15%"></td>
+   				<td width="15%"></td>
+   				<td></td>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<s:iterator value="#request.list"  var="a"><tr>
+   				<td>
+   					<s:if test="#a.isdefault == 1"><input type="radio" name="addrradio" value="${a.deliveraddrId }" checked="checked"></s:if><s:else><input type="radio" name="addrradio" value="${a.deliveraddrId }"></s:else>
+   				</td>
+   				<td>${a.area }</td>
+   				<td>${a.addr}</td>
+   				<td>${a.recevername}(收)</td>
+   				<td>${a.phone}</td>
+   				<td></td>
+   			</tr></s:iterator>
+   		</tbody>
+   	</table>
+</div>
+</s:if>
+<s:else><span>还没有添加收货地址</span></s:else>

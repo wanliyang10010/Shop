@@ -1,0 +1,32 @@
+#mytable{
+	margin-left: auto;
+	margin-right: auto;
+	/* border: 1px solid black;
+	border-collapse: collapse; */
+}
+/* 该class是struts 自带的 */
+.wwFormTable{
+	/* background-color:red; */
+	margin-left: auto;
+	margin-right: auto;
+	/* font-family: "Times New Roman"; */
+}
+#mysubmit{
+	width:100px;
+}
+
+#mytable tr:last-child td button{
+	/* background-color:purple;*/ 
+	
+}
+#fanhui{
+	margin-left: auto;
+	margin-right: auto;
+	width:100%;
+}
+#fanhuiform{
+	width:100%;
+}
+#fanhuibutton{
+	float:right;
+}

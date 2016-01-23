@@ -1,0 +1,32 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ include file="/common/taglibs.jspf"%>
+<s:if test="#request.page.totalItems > 0">
+	<div style="margin-top: 10px;">
+		<div style="float: left;">
+			共${page.totalItems}条数据 ${page.pageNo}/${page.totalPages}页 每页显示 
+			<select name="selectPageSize" id="selectPageSize" onchange="changePageSize(this.options[this.selectedIndex].value);">
+				<c:forEach var="v" begin="5" end="15" step="5">
+					<option value="${v}" ${page.pageSize== v ? "selected=\"selected\"" : ""}>${v}</option>
+				</c:forEach>
+			</select> 条数据
+		</div>
+		<div style="float: right;">
+			<c:if test="${not page.firstPage}">
+				<a href="javascript:jumpPage(1);">首页</a>
+				<a href="javascript:jumpPage(${page.prePage});">上一页</a>
+			</c:if>
+			<c:if test="${not page.lastPage}">
+				<a href="javascript:jumpPage(${page.nextPage});">下一页</a>
+				<a href="javascript:jumpPage(${page.totalPages});">尾页</a>
+			</c:if>
+			<c:if test="${page.totalPages > 1}">
+				跳转至第
+				<select name="selectPageNo" id="selectPageNo" onchange="jumpPage(this.options[this.selectedIndex].value);">
+				<c:forEach var="i" begin="1" end="${page.totalPages }" step="1">
+					<option value="${i}" ${page.pageNo == i ? "selected=\"selected\"" : ""}>${i}</option>
+				</c:forEach>
+				</select>页
+			</c:if>
+		</div>
+	</div>
+</s:if>

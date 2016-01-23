@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- struts调试模式 ，开启，可以修改配置文件后不用重启tomcat
+		<constant name="struts.devMode" value="true"></constant>
+	-->
+	 
+ 	<!-- 配置.do .actioin均能访问 -->
+ 	<constant name="struts.action.extension" value="do,action,chao"/>
+ 	<constant name="struts.multipart.maxSize" value="55000000"/>
+	<!-- struts-default 使用默认的struts拦截器 -->
+	<!-- 主要是用来设置上传文件的临时存放地址 -->
+	<!-- 临时文件放在项目所在的根磁盘下的tmp目录下如项目放在D盘(tomcat所在根目录)，则该tempfile临时文件夹就在D盘根目录下-->
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+    
+	<package name="public" extends="json-default" >
+
+	<global-results>
+		<result name="gologin" type="redirect">/login.jsp</result>
+		<result name="error">/error/error.jsp</result>
+		<result name="error2">/error/error.jsp</result>
+		<result name="time">/error/endtime.jsp</result>
+	</global-results>
+	
+
+	<global-exception-mappings>
+		<exception-mapping result="error" exception="java.lang.Exception" />
+		<exception-mapping result="error2" exception="java.lang.RuntimeException" />
+	</global-exception-mappings>
+
+	 
+		<!-- 在struts2中可以忽略工程名称 -->
+		<action name="orderAction_*" class="orderAction" method="{1}">
+			<result name="disputeOrder" type="dispatcher">/dispute/DisputeInfo.jsp</result>
+			<result name="haveBuyGoods">/haveBuyGoods/haveBuyGoods.jsp</result>
+			<result name="paySuccessed" type="redirectAction">orderAction_haveBuyGoods.action</result>
+			<result name="haveSellGoods" >/haveSellGoods/haveSellGoods.jsp</result>
+			<result name="haveBuyAction" type="redirectAction">orderAction_haveBuyGoods.action</result>
+			<result name="haveSellAction" type="redirectAction">orderAction_haveSellGoods.action</result>
+			<result name="SaleOrder" type="dispatcher">/shopManage/SaleOrderCount.jsp</result>
+			<result name="payNowURL" type="redirect" >${redirectUrl}</result>
+			<result name="cancelOrderURL" type="redirect" >${redirectUrl}</result>
+			<result name="confirmGoodsURL" type="redirect" >${redirectUrl}</result>
+			<result name="bank" type="dispatcher" >${ctx}/haveBuyGoods/payNow.jsp?${strGoPayUrl}</result>
+			<result name="deleteOrderURL" type="redirect">${redirectUrl}</result>
+			<result name="reOperation" type="redirect">/error/reOperation.jsp</result>
+			<result name="viewTrans">/haveBuyGoods/viewTrans.jsp</result>
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="orderSonAction_*" class="orderSonAction" method="{1}">
+			<result name="viewOrder" type="dispatcher">/AdminStage/OrderView.jsp</result>	
+		</action>
+		
+		<action name="cartAction_*" class="cartAction" method="{1}">
+			<result name="loginshowCart" >/users/showCart.jsp</result>
+			<result name="unloginshowCart"  type="redirect">/login.jsp</result>
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="cartItemAction_*" class="cartItemAction" method="{1}">
+			<result name="showCart" type="redirect">/cartAction_queryCarts.action</result>
+			<result name="goodPage" type="redirect">/viewProductAction_product.do?gid=${gid}</result>
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="queryUser" >/showUser.jsp</result>
+		</action>
+		
+		<action name="userinfoAction_*" class="userInfoAction" method="{1}">
+		    <result name="invalid.token" type="redirectAction">viewProductAction_MyShop.do</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="token">
+			<param name="includeMethods">userinfoAction_saveMail,userinfoAction_save,userinfoAction_savePhone</param>
+			</interceptor-ref>
+		    <result name="pwdchange">/user/PasswordChange.jsp</result>
+			<result name="regeditUser" >viewProductAction_MyShop.do</result>
+			<result name="checkPWD" >/user/PasswordChange.jsp</result>
+			<result name="checkUser" >/user/NormalRegedit.jsp</result>
+			<result name="checkPWDUser" >/user/PasswordReset.jsp</result>
+			<result name="checkPhoneUser">/user/PhoneRegedit.jsp</result>
+			<result name="checkMailUser">/user/MailRegedit.jsp</result>
+			<result name="success" type="redirectAction">viewProductAction_MyShop.do</result>
+			<result name="failed" >/login.jsp</result>
+			<result name="PwdReset" type="redirectAction">userinfoAction_clear</result>
+			<result name="login">/login.jsp</result>
+			<result name="MesReset" type="dispatcher">/user/ResetUserMessage.jsp</result>
+		    <result name="UserAdd" type="redirectAction">userinfoAction_getUser</result>
+			<result name="getUser" type="dispatcher">/user/UserMessage.jsp</result>
+			<result name="updateuser" type="redirectAction">userinfoAction_viewmessage</result>
+			<!-- hx修改 userinfoAction_qury -->
+			<result name="query" type="redirectAction">userinfoAction_queryUser</result>
+			<result name="list">/AdminStage/UserStateManage.jsp</result>
+			<result name="viewmessage"  type="dispatcher">/user/ViewMessage.jsp</result>
+			<!-- <result name="back2url" type="redirect" >${goUrl}</result> -->
+			<result name="back2url" type="redirect" >
+				<param name="location">${goUrl}</param>
+			</result>
+			<result name="json" type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+			<result name="failure">/login.jsp</result>
+		</action>
+		
+		<action name="superUserAction_*" class="superUserAction" method="{1}">
+		<result name="invalid.token" type="redirectAction">superUserAction_queryAdmin</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="token">
+			<param name="includeMethods">superUserAction_add</param>
+			</interceptor-ref>
+		    <result name="list" type="dispatcher">/backstage/AdminManage.jsp</result>
+		    <result name="query" type="redirectAction">superUserAction_queryAdmin</result>
+		    <result name="loginBack">/backstage/index.jsp</result>
+			<result name="loginfailed" >/backstage/login.jsp</result>
+			<result name="updateuserBack" type="redirectAction">superUserAction_viewmessageBack</result>
+			<result name="viewmessageBack"  type="dispatcher">/backstage/ViewMessage.jsp</result>
+			<result name="PwdResetBack" type="redirectAction">superUserAction_clearBack</result>
+			<result name="clearBack">/login.jsp</result>
+			<result name="MesResetBack">/backstage/ResetUserMessage.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="adminUserAction_*" class="adminUserAction" method="{1}">
+		    <result name="list" type="dispatcher">/AdminStage/AdminManage.jsp</result>
+		    <result name="query" type="redirectAction">adminUserAction_qury</result>
+		    <result name="loginAdmin">/AdminStage/index.jsp</result>
+		    <result name="pwdchange">/AdminStage/PasswordChange.jsp</result>
+			<result name="loginfailedAdmin" >/AdminStage/login.jsp</result>
+			<result name="updateuser">/AdminStage/UserStateManage.jsp</result>
+			<result name="updateuserBack" type="redirectAction">adminUserAction_viewmessageBack</result>
+			<result name="viewmessageBack"  type="dispatcher">/AdminStage/ViewMessage.jsp</result>
+			<result name="PwdResetBack" type="redirectAction">adminUserAction_clearBack</result>
+			<result name="clearBack">/login.jsp</result>
+			<result name="MesResetBack">/AdminStage/ResetUserMessage.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="shopApplyAction_*" class="shopApplyAction" method="{1}">
+			<result name="checkShop">/shopManage/checkShop.jsp</result>
+			<result name="applyShop" >/shopManage/applyShop.jsp</result>
+			<result name="alterShop">/shopManage/alterShop.jsp</result>
+			<result name="alterMyShop">/shopManage/alterMyShop.jsp</result>
+			<result name="viewShopRedirect" type="redirectAction">shopAction_searchMyViewList.action</result>
+			<result name="viewShop">/shopManage/viewShop.jsp</result>
+			<result name="viewShopProgress">/shopManage/viewShopProgress.jsp</result>
+			<result name="adminViewShopProgress">/shopManage/adminViewShopProgress.jsp</result>
+			<result name="viewShopProgressRedirect" type="redirectAction">shopApplyAction_searchMyViewList</result>
+		    <result name="checkShopAction" type="redirectAction">shopApplyAction_searchAllCheckList.action</result>
+			<result name="reOperation" type="redirect">/error/reOperation.jsp</result>
+			 <result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="shopAction_*" class="shopAction" method="{1}">
+			<result name="viewShop">/shopManage/viewShop.jsp</result>
+			<result name="submitMargin">/shopManage/submitMargin.jsp</result>
+			<result name="viewMargin">/shopManage/viewMargin.jsp</result>			
+			<result name="list">/shop-list.jsp</result>
+			<result name="viewShopRedirect" type="redirectAction">shopAction_searchMyViewList.action</result>
+			<result name="viewMarginRedirect" type="redirectAction">marginDetailAction_queryByShopid.action</result>
+		    <result name="reOperation" type="redirect">/error/reOperation.jsp</result>
+		    <result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="prolongApplyAction_*" class="prolongApplyAction" method="{1}">
+			<result name="checkProlongApply">/prolongTime/checkProlong.jsp</result>
+			<result name="viewProlongApply">/prolongTime/viewProlong.jsp</result>
+			<result name="viewProlongApplySell">/prolongTime/viewProlongSell.jsp</result>
+			<result name="alterProlongApply">/prolongTime/alterProlong.jsp</result>
+			<result name="checkProlongApplyRedirect" type="redirectAction">prolongApplyAction_searchMyCheckList.action</result>
+			<result name="alterProlongApplyRedirect" type="redirectAction">prolongApplyAction_searchMyAlterList.action</result>
+			<result name="viewProlongApplyRedirect" type="redirectAction">prolongApplyAction_searchMyViewList.action</result>
+			<result name="reOperation" type="redirect">/error/reOperation.jsp</result>
+		</action>
+		
+		<action name="returnGoodsAction_*" class="returnGoodsAction" method="{1}">
+			<result name="checkReturnGoods">/returnGoods/checkReturn.jsp</result>
+			<result name="viewReturnGoods">/returnGoods/viewReturn.jsp</result>
+			<result name="viewReturnGoodsSell">/returnGoods/viewReturnSell.jsp</result>
+			<result name="alterReturnGoods">/returnGoods/alterReturn.jsp</result>
+			<result name="transInfoReturnGoods">/returnGoods/transInfoReturn.jsp</result>
+			<result name="confirmReturnGoods">/returnGoods/confirmReturn.jsp</result>
+			<result name="checkReturnGoodsRedirect" type="redirectAction">returnGoodsAction_searchMyCheckList.action</result>
+			<result name="alterReturnGoodsRedirect" type="redirectAction">returnGoodsAction_searchMyAlterList.action</result>
+			<result name="viewReturnGoodsRedirect" type="redirectAction">returnGoodsAction_searchMyViewList.action</result>
+			<result name="viewReturnGoodsSellRedirect" type="redirectAction">returnGoodsAction_searchMyViewListSell.action</result>
+			<result name="reOperation" type="redirect">/error/reOperation.jsp</result>
+		</action>
+		<action name="goodsEvaluationAction_*" class="goodsEvaluationAction" method="{1}">	
+			<result name="postViewEvaluation" >/pointEvaluation/postViewEvaluation.jsp</result>
+			<result name="buyPostViewEvaluation" >/pointEvaluation/buyPostViewEvaluation.jsp</result>
+			<result name="otherPostViewEvaluation" >/pointEvaluation/otherPostViewEvaluation.jsp</result>
+			<result name="postViewEvaluationRedirect" type="redirectAction">goodsEvaluationAction_searchPointEvaluation.action</result>
+			<result name="buyPostViewEvaluationRedirect" type="redirectAction">goodsEvaluationAction_buySearchPointEvaluation.action</result>
+			<result name="otherPostViewEvaluationRedirect" type="redirectAction">goodsEvaluationAction_otherSearchPointEvaluation.action</result>
+			<result name="viewEvaluation">/pointEvaluation/viewEvaluation.jsp</result>
+			<result name="reOperation" type="redirect">/error/reOperation.jsp</result>
+			<result name="json" type="json" >
+					<param name="root">jsonMap</param>
+				</result>
+		</action>
+		
+		<action name="shopEvaluationAction_*" class="shopEvaluationAction" method="{1}">	
+			<result name="forwardShopPoint" >/pointEvaluation/viewShopPoint.jsp</result>			
+		</action>
+		
+		<action name="userPointAction_*" class="userPointAction" method="{1}">	
+			<result name="forwardUserPoint" >/pointEvaluation/viewUserPoint.jsp</result>
+		</action>
+		
+		<action name="marginDetailAction_*" class="marginDetailAction" method="{1}">
+			<result name="viewMargin">/shopManage/viewMargin.jsp</result>
+			<result name="Marginsub">/AdminStage/MarginPunish.jsp</result>
+			<result name="subMargin" type="redirectAction">marginDetailAction_viewDeital</result>
+			<result name="MarginDetial">/AdminStage/MarginDetial.jsp</result>
+			<result name="marginDetailForShop">/shopManage/marginDetail.jsp</result>
+			<result name="viewMarginRedirect" type="redirect">/shopManage/viewMargin.jsp</result>
+			<result name="reOperation" type="redirect">/error/reOperation.jsp</result>
+		</action>
+		<action name="marginRuleAction_*" class="marginRuleAction" method="{1}">
+			<result name="list" type="dispatcher">/backstage/MarginRule.jsp</result>
+			 <result name="query" type="redirectAction">marginRuleAction_getlistItem</result>
+			 <result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="pointsRuleAction_*" class="pointsRuleAction" method="{1}">
+			<result name="list" type="dispatcher">/backstage/PointsRule.jsp</result>
+			 <result name="query" type="redirectAction">pointsRuleAction_getlistItem</result>
+		</action>
+		
+		<action name="dateRuleAction_*" class="dateRuleAction" method="{1}">
+		    <result name="list">/backstage/DateRule.jsp</result>
+			<result name="success" type="dispatcher">/backstage/DateRule.jsp</result>
+			 <result name="query" type="redirectAction">dateRuleAction_getlistItem</result>
+		</action>
+		
+		<action name="shopStateAction_*" class="shopStateAction" method="{1}">
+		    <result name="list">/AdminStage/ShopStateManage.jsp</result>
+		    <result name="lists" type="dispatcher">/AdminStage/ShopGoodsManage.jsp</result> 
+		    <result name="query"  type="redirectAction">shopStateAction_qury</result> 
+		    <result name="queryGoods"  type="redirectAction">shopStateAction_sdetial</result>   
+		    <result name="TopGoods">/AdminStage/TopGoodsManage.jsp</result>                                        
+		<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="discountAction_*" class="discountAction" method="{1}">
+		   <result name="query"  type="redirectAction">goodsAction_sdetialDH</result> 
+		   <result name="view"  type="redirectAction">discountAction_query</result> 
+		   <result name="Discount"  type="dispatcher">/Goods/DiscountView.jsp</result> 
+		
+		</action>
+		
+		<action name="disputeAction_*" class="disputeAction" method="{1}">
+		    <result name="add" type="redirectAction">disputeAction_viewdispute</result>
+		    <result name="check" type="redirectAction">disputeAction_disputeAdmin</result>
+		    <result name="list">/AdminStage/DisputeCheck.jsp</result>
+		    <result name="info">/dispute/DisputeInfo.jsp</result>
+		    <result name="view">/dispute/DisputeView.jsp</result>
+		     <result name="viewAdmin">/AdminStage/DisputeView.jsp</result>
+		</action>
+		
+		<action name="disputeFileAction_*" class="disputeFileAction" method="{1}">
+		    <result name="listadd">/dispute/DisputeInfo.jsp</result>
+		     <result name="listdelete">/dispute/DisputeInfo.jsp</result>
+		    <result name="list">/AdminStage/DisputeCheck.jsp</result>
+		    <result name="listfile" type="dispatcher">/AdminStage/DisputeFile.jsp</result>
+		</action>
+		
+		<action name="viewProductAction_*" class="viewProductAction" method="{1}">
+		    <result name="product" type="dispatcher">/ProductDetial.jsp</result>
+		    <result name="productDetial" type="dispatcher">/ProductPicture.jsp</result>
+		    <result name="list">/ViewProduct.jsp</result>
+		    <result name="listType">/ViewType.jsp</result>
+		    <!--  <result name="listShop" type="dispatcher">/ShopSearch.jsp</result>-->
+		    <result name="listh">/ViewHot.jsp</result>
+		    <result name="listd">/ViewDiscount.jsp</result>
+		    <result name="listfile" type="dispatcher">/dispute/DisputeFile.jsp</result>
+			<result name="listShand" type="dispatcher">/ViewShand.jsp</result>
+		    <result name="shop">/ViewShop.jsp</result> 
+		    <result name="MyShop">/MyShop.jsp</result> 
+		    <result name="listpage">/decoration/mainpage.jsp</result>
+		    <result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="viewProductActionShopSearch_*" class="viewProductActionShopSearch" method="{1}">		    
+		    <result name="listShop" type="dispatcher">/ShopSearch.jsp</result>		   
+		</action>
+		
+		
+		<action name="dateItemAction_*" class="dateItemAction" method="{1}">
+		  <result name="list" type="dispatcher">/backstage/DateItem.jsp</result>
+		  <result name="query" type="redirectAction">dateItemAction_qury</result>
+		  <result name="listRule" type="redirectAction">dateRuleAction_getlistItem</result>
+		</action>
+		
+		<action name="marginItemAction_*" class="marginItemAction" method="{1}">
+		   <result name="list" type="dispatcher">/backstage/MarginItem.jsp</result>
+		   <result name="query" type="redirectAction">marginItemAction_qury</result>
+		   <result name="listRule" type="redirectAction">marginRuleAction_getlistItem</result>
+		</action>
+		
+		<action name="pointsItemAction_*" class="pointsItemAction" method="{1}">
+		   <result name="list" type="dispatcher">/backstage/PointsItem.jsp</result>
+		    <result name="query" type="redirectAction">pointsItemAction_qury</result>
+		   <result name="listRule" type="redirectAction">pointsRuleAction_getlistItem</result>
+		</action>
+		
+		<!-- wangchao -->
+		<action name="decoration_*" class="decorationShopAction" method="{1}">
+			<result name="list">/decoration/maintest.jsp</result>
+			<result name="listpage">/decoration/mainpage.jsp</result>
+		</action>	
+		
+		<action name="messageAction_*" class="messageAction" method="{1}">
+		<result name="listAdmin">/AdminStage/Message.jsp</result>
+		<result name="list">/user/Message.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="goodsAction_*" method="{1}" class="goodsAction" >
+			<result name="addGoods" type="redirectAction">goodsAction_ViewGoods</result>
+		  	<result name="viewGoods" type="dispatcher">/Goods/GoodsView.jsp</result>
+		  	<result name="pictureinfo" type="dispatcher">/Goods/GoodsPictureInfo.jsp</result>
+		  	<result name="iteminfo" type="dispatcher">/Goods/GoodsDetialInfo.jsp</result>
+		  	<result name="queryGoods" type="redirectAction">goodsAction_query</result>
+		  	<result name="list" type="dispatcher">/Goods/GoodsManage.jsp</result>
+		  	<result name="listview" type="dispatcher">/Goods/GoodsManage.jsp</result> 
+		  	<result name="listd" type="dispatcher">/Goods/AddDiscount.jsp</result> 
+		  	<result name="listdh"  type="redirectAction">goodsAction_sdetialDH</result> 
+		  	<result name="SaleGoods" type="dispatcher">/shopManage/SaleGoodsCount.jsp</result>
+		  	<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="goodsDetialAction_*" method="{1}" class="goodsDetialAction" > 
+		 	<result name="list" type="dispatcher">/Goods/GoodsDetialInfo.jsp</result>
+		 	<result name="query" type="redirectAction">goodsDetialAction_query</result>
+		 	<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="goodsTypeAction_*" method="{1}" class="goodsTypeAction" > 
+		 <result name="list" type="dispatcher">/GoodsType/GoodsTypeManage.jsp</result>
+		    <result name="query" type="redirectAction">goodsTypeAction_query</result>
+		    <result name="item" type="redirectAction">goodsTypeItemAction_query</result>
+		     <result name="itemList" type="dispatcher">/Goods/GoodsInfo.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="goodsTypeItemAction_*" method="{1}" class="goodsTypeItemAction" > 
+		   <result name="list" type="dispatcher">/GoodsType/GoodsTypeItemManage.jsp</result>
+		    <result name="query" type="redirectAction">goodsTypeItemAction_query</result>
+		     <result name="listItem" type="dispatcher">/Goods/GoodsDetialInfo.jsp</result>
+				<result name="json"  type="json" >
+						<param name="root">jsonMap</param>
+					</result>
+		</action>
+		
+		<action name="goodsPictureAction_*" method="{1}" class="goodsPictureAction" > 
+		<result name="list">/Goods/GoodsPictureInfo.jsp</result>
+		    <result name="query" type="redirectAction">goodsPictureAction_query</result>
+		    <result name="listAdmin">/AdminStage/GoodsFileManage.jsp</result>
+		    <result name="queryAdmin" type="redirectAction">goodsPictureAction_queryAdmin</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+
+		<action name="stageGoodsAction_*" method="{1}" class="stageGoodsAction" > 
+		   <result name="list" type="dispatcher">/AdminStage/StageGoodsManage.jsp</result>
+		    <result name="query" type="redirectAction">stageGoodsAction_query</result>
+		     <result name="listGoods" type="dispatcher">StageGoodsManage/ViewStageGoods.jsp</result>
+		     <result name="viewGoods" type="dispatcher">StageGoodsManage/StageGoodsDetial.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="stageOrderAction_*" method="{1}" class="stageOrderAction" > 
+		   <result name="list" type="dispatcher">/AdminStage/StageOrderManage.jsp</result>
+		    <result name="query" type="redirectAction">stageGoodsAction_query</result>
+		     <result name="SaleOrder" type="dispatcher">StageGoodsManage/ViewStageOrder.jsp</result>
+		     <result name="viewGoods" type="dispatcher">StageGoodsManage/StageGoodsDetial.jsp</result>
+			<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+         <action name="goodsStockAction_*" method="{1}" class="goodsStockAction" >
+			<result name="stock" type="dispatcher">/Goods/GoodsStockInfo.jsp</result>
+		  	<result name="json"  type="json" >
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+		<action name="expressAction_*" class="expressAction" method="{1}">
+			<result name="viewExpressRedirect" type="redirectAction">expressAction_searchViewList</result>
+			<result name="viewExpress">/p2pExpress/viewExpress.jsp</result>
+			<result name="alterExpress">/p2pExpress/alterExpress.jsp</result>
+			<result name="alterExpressRedirect" type="redirectAction">expressAction_searchAlterList</result>
+			<result name="reOperation" type="redirect">/error/reOperation.jsp</result>
+		</action>
+	</package>
+	<package name="login" extends="struts-default">
+		<global-results>
+			<result name="gologin" type="redirect">/login.jsp</result>
+			<result name="error">/error/error.jsp</result>
+			<result name="error2">/error/error.jsp</result>
+			<result name="time">/error/endtime.jsp</result>
+		</global-results>
+		
+		<action name="userLoginAction_*" method="{1}" class="cn.xaut.shop.action.UserLoginAction" >
+			<result name="goUserlogin" type="redirectAction">userinfoAction_login.do</result>
+			<result name="goSuperAdmin" type="redirectAction">superUserAction_loginBack.do</result>
+			<result name="goCustomService" type="redirectAction">adminUserAction_loginAdmin.do</result>
+			<result name="goError">/login.jsp</result>
+			<result name="goConfigureManagement">/endDecorators/configureManagementIndex.jsp</result>
+		</action>
+		<action name="unifiedLogin_*" class="cn.xaut.shop.action.UnifiedLogin" method="{1}">
+			<result name="goLogin" type="redirectAction">/frontLogin.action?username=${username}&amp;password=${password}</result> 
+		</action>
+
+	</package>
+	
+	<include file="struts-order.xml"/>
+	<include file="cn/xaut/common/security/action/strutshx.xml"/>
+	<include file="strutsMarginItemPhone.xml"/>
+	<include file="struts-orderPhone.xml"/>
+	<include file="strutsPhone.xml"/>
+	<include file="strutsPhonehx.xml"/>
+	<include file="strutsPhonefc.xml"/>
+	<include file="strutsScanPhone.xml"/>
+	<include file="strutsPhonehx.xml" />
+	 
+	<include file="adminUserAction.xml"/>
+	 
+	<include file="strutsPhonehx.xml"/>
+
+	<include file="strutsDatePhone.xml"/> <!-- scan配置 -->
+	<include file="struts_shoppunish.xml"/> 
+</struts>    

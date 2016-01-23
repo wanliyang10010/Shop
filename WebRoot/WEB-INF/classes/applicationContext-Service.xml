@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	
+	<context:annotation-config />
+	<!-- 自动配置 --> 
+	<context:component-scan base-package="cn.xaut.common.security"></context:component-scan>
+	 
+	 <!-- 定义上下文返回的消息的国际化。 -->
+	 <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	 	<property name="basename" value="classpath:org/springframework/security/messages_zh_CN" />
+	 </bean>
+	 
+	 <!--  
+		  事件监听:实现了 ApplicationListener监听接口,  
+		  包括AuthenticationCredentialsNotFoundEvent 事件，  
+		  AuthorizationFailureEvent事件，AuthorizedEvent事件， PublicInvocationEvent事件。
+	  -->
+	  <bean class="org.springframework.security.authentication.event.LoggerListener"></bean>
+	  
+	  <!-- 用户的密码加密或解密 --> 
+	  <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"></bean>
+	  
+	  <!-- 用户详细信息管理：数据源、用户缓存（通过数据库管理用户、角色、权限、资源）。 
+	  	 
+	  <bean id="userDetailsManager" class="com.aimeng.base.security.MyUserDetailsService">
+	  	<property name="" ref=""></property>
+	  	<property name="" ref=""></property>
+	  	<property name="" ref=""></property>
+	  	<property name="userCache" ref="userCache"></property>
+	  </bean>
+	  -->
+	  
+	  
+	  <!-- 启用用户的缓存功能 -->
+	  <bean id="userCache" class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
+	  	<property name="cache" ref="userEhCache"></property>
+	  </bean>
+	  
+	  <bean id="userEhCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">  
+	  	<property name="cacheName" value="userCache" />  
+	  	<property name="cacheManager" ref="cacheManager" />  
+	  </bean>  
+	  
+	  <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"></bean>
+	 
+	  <bean id="userService" class="cn.xaut.shop.service.impl.UserInfoServiceImpl"></bean>
+	  
+</beans>
